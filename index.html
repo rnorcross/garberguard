@@ -84,14 +84,52 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 header.site .in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
 .brand img{height:40px;display:block}
 .nav{display:flex;gap:28px;align-items:center}
-.nav a{color:var(--head);font-weight:700;font-size:15px;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
-.nav a:hover,.nav a[aria-current="page"]{border-bottom-color:var(--link)}
+.nav>a{color:var(--head);font-weight:700;font-size:15px;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+.nav>a:hover,.nav>a[aria-current="page"]{border-bottom-color:var(--link)}
+.dd{display:flex}
+.dd-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;border-bottom:2px solid transparent;padding:8px 0;font:inherit;font-weight:700;font-size:15px;color:var(--head);cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-current="page"],.dd-btn[aria-expanded="true"]{border-bottom-color:var(--link)}
+.dd-btn .chev{transition:transform .2s}
+.dd-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.dd-panel{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 1px);background:var(--surface);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;box-shadow:0 28px 60px var(--shadow);padding:28px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;animation:ddIn .18s ease-out}
+@media (min-width:720px){.dd-panel{left:max(32px,env(safe-area-inset-left,0px));right:max(32px,env(safe-area-inset-right,0px))}}
+.dd-panel[hidden]{display:none!important}
+@keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mm-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0 12px 10px}
+.mm-head a{font-weight:800;font-size:14px;text-decoration:none}
+.mm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.mm-item{display:flex;gap:14px;align-items:center;padding:12px;border-radius:12px;text-decoration:none;color:inherit;transition:background .15s}
+.mm-item:hover,.mm-item:focus-visible{background:var(--soft)}
+.mm-item[aria-current="page"]{background:var(--tint)}
+.mm-ic{width:44px;height:44px;flex:none;border-radius:11px;background:var(--tint);color:var(--link);display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+.mm-ic svg{width:24px;height:24px}
+.mm-item:hover .mm-ic{background:var(--btn);color:#ffffff}
+.mm-item b{display:block;font-size:15.5px;font-weight:800;color:var(--head);line-height:1.25}
+.mm-item span span{display:block;font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:2px}
+.mm-side{display:flex;flex-direction:column;gap:14px}
+.mm-bundle{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;text-decoration:none;--chamfer:24px}
+.mm-bundle b{font-size:21px;font-weight:900;line-height:1.15;color:#ffffff}
+.mm-bundle p{font-size:14px;color:var(--on-navy-muted)}
+.mm-bundle .go{font-weight:800;color:#ffffff;font-size:14px;margin-top:4px}
+.mm-help{border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14px;color:var(--muted)}
+.mm-help b{display:block;color:var(--head);font-size:15px;margin-bottom:4px}
+.mm-help a{font-weight:800;text-decoration:none}
 .menu-btn{display:none;width:44px;height:44px;border:0;background:none;color:var(--head);cursor:pointer;align-items:center;justify-content:center}
 .head-cta{display:flex;align-items:center;gap:16px}
 @media (max-width:960px){
   .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--surface);border-bottom:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));box-shadow:0 16px 30px var(--shadow)}
   .nav.open{display:flex}
-  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav>a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav{max-height:calc(100vh - 76px - env(safe-area-inset-top,0px));overflow-y:auto}
+  .dd{flex-direction:column}
+  .dd-btn{justify-content:space-between;width:100%;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .dd-btn:hover,.dd-btn[aria-current="page"],.dd-btn[aria-expanded="true"]{border-bottom-color:var(--line)}
+  .dd-panel{position:static;border:0;border-radius:0;box-shadow:none;padding:6px 0 10px;grid-template-columns:1fr;gap:10px;animation:none}
+  .nav .mm-item{padding:10px 6px;border-bottom:0}
+  .mm-grid{grid-template-columns:1fr;gap:0}
+  .mm-head{display:none}
+  .mm-help{display:none}
+  .nav .mm-bundle{padding:18px;border-bottom:0}
   .menu-btn{display:inline-flex}
   .util .hide-sm{display:none}
   .util .in>span:first-child{font-size:12px}
@@ -359,7 +397,10 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
   <div class="in" style="position:relative">
     <a class="brand" href="#home" aria-label="Garber Guard home"><img class="logo-l" src="/assets/logo-color.png" alt="Garber Guard"><img class="logo-d" src="/assets/logo-white.png" alt="Garber Guard"></a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#plans" data-nav="plans">Protection plans</a>
+      <div class="dd" id="plansDD">
+        <button class="dd-btn" id="plansBtn" type="button" aria-expanded="false" aria-controls="plansMenu" data-nav="plans">Protection plans<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dd-panel" id="plansMenu" hidden></div>
+      </div>
       <a href="#how-it-works" data-nav="how-it-works">How it works</a>
       <a href="#claims" data-nav="claims">Claims</a>
       <a href="#faq" data-nav="faq">FAQ</a>
@@ -509,6 +550,7 @@ const COMBO_SET=['tire-wheel','key-remote','dent-repair','windshield'];
 const STORES={"Michigan":["Garber Buick — Saginaw","Garber Chevrolet Saginaw","Garber Chevrolet Midland","Garber Chevrolet Linwood","Garber Chevrolet Chesaning","Curtis Garber Chevrolet — Caro","Curtis Garber Cadillac — Caro","Garber CDJR Saginaw","Garber Ford Bay City","Garber Hyundai — Saginaw","Garber Nissan — Saginaw"],"Indiana":["Garber Chevrolet Highland","Garber CDJR Valparaiso"],"Illinois":["Sunrise Chevrolet — Glendale Heights"],"New York":["Garber Chevrolet Webster — Rochester","Garber Subaru — Webster","Garber Honda — Rochester","Acura of Rochester","Audi Rochester","Porsche Rochester","Volvo Cars Rochester","Garber Randall Chevrolet — Canandaigua","Garber Randall Buick GMC — Canandaigua","Garber Randall Cadillac — Canandaigua"],"Florida":["Garber Automall GM — Orange Park","Garber Automall Ford — Orange Park","Garber Automall CDJR — Orange Park","Delray Buick GMC — Delray Beach","Garber Buick GMC — Fort Pierce","Nissan of Bradenton"],"Georgia":["Hilton Head Buick GMC — Savannah","Hilton Head Cadillac — Savannah"]};
 const MAKES=['Acura','Audi','BMW','Buick','Cadillac','Chevrolet','Chrysler','Dodge','Ford','GMC','Honda','Hyundai','Jeep','Kia','Lexus','Mazda','Mercedes-Benz','Nissan','Porsche','RAM','Subaru','Tesla','Toyota','Volkswagen','Volvo','Other'];
 
+const MM={'tire-wheel':'Potholes, curbs and road debris','windshield':'Chips, cracks and replacement','key-remote':'Lost, stolen or dead key fobs','touchscreen':'Center, cluster and HUD displays','dent-repair':'Door dings up to 4", paint intact','rust-undercoat':'Salt, spray and corrosion','appearance':'Interior and paint protection','oil-change':'Oil, rotation and inspection'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const a=s=>esc(s);
 
@@ -631,6 +673,20 @@ function validate(step){errs={};
  if(step===3){if(!Q.first.trim())errs.first='Enter your first name.';if(!Q.last.trim())errs.last='Enter your last name.';if(Q.phone.replace(/\D/g,'').replace(/^1/,'').length!==10)errs.phone='Enter a 10-digit phone number.';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Q.email.trim()))errs.email='Enter an email like name@example.com.';if(!/^\d{5}$/.test(Q.zip))errs.zip='Enter a 5-digit ZIP code.';if(!Q.consent)errs.consent='Check the box so your specialist can contact you.';}
  return !Object.keys(errs).length;}
 
+/* ---------- plans dropdown ---------- */
+const ddBtn=document.getElementById('plansBtn'),ddPanel=document.getElementById('plansMenu'),dd=document.getElementById('plansDD');
+ddPanel.innerHTML=`<div><div class="mm-head"><span class="eyebrow">Protection plans</span><a href="#plans">View all plans →</a></div><div class="mm-grid">${ORDER.map(id=>`<a class="mm-item" href="#${id}" data-mm="${id}"><span class="mm-ic">${ICON[id]}</span><span><b>${esc(P[id].name)}</b><span>${esc(MM[id])}</span></span></a>`).join('')}</div></div>
+<div class="mm-side"><a class="mm-bundle navy chamfer on-navy" href="#combo" data-mm="combo"><span class="eyebrow">Bundle · 5-in-1 Combo</span><b>Five protections. One simple plan.</b><p>Tire &amp; wheel, keys, dents, windshield and 24/7 roadside, $0 deductible.</p><span class="go">See the bundle →</span></a><div class="mm-help"><b>Not sure what you need?</b>Tell us about your vehicle and a specialist will recommend. <a href="#get-started" data-start>Start a quote →</a></div></div>`;
+let ddHoverAt=0,ddTimer=null;
+const ddIsDesktop=()=>matchMedia('(min-width:961px)').matches;
+function ddSet(open){ddPanel.hidden=!open;ddBtn.setAttribute('aria-expanded',String(open));}
+ddBtn.addEventListener('click',()=>{const open=ddPanel.hidden;if(!open&&Date.now()-ddHoverAt<400)return;ddSet(open);});
+dd.addEventListener('pointerenter',e=>{if(e.pointerType!=='mouse'||!ddIsDesktop())return;clearTimeout(ddTimer);if(ddPanel.hidden){ddSet(true);ddHoverAt=Date.now();}});
+dd.addEventListener('pointerleave',e=>{if(e.pointerType!=='mouse'||!ddIsDesktop())return;ddTimer=setTimeout(()=>ddSet(false),180);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ddPanel.hidden){ddSet(false);ddBtn.focus();}});
+document.addEventListener('click',e=>{if(!ddPanel.hidden&&ddIsDesktop()&&!dd.contains(e.target))ddSet(false);});
+dd.addEventListener('focusout',e=>{if(ddIsDesktop()&&!dd.contains(e.relatedTarget))ddSet(false);});
+
 /* ---------- router ---------- */
 const app=document.getElementById('app');
 const chrome=[document.getElementById('util'),document.getElementById('siteHeader'),document.getElementById('ctaBand'),document.getElementById('siteFooter')];
@@ -641,7 +697,7 @@ function render(focusTop){const r=(location.hash||'').slice(1)||'home';let html,
  app.innerHTML=html;chrome.forEach(el=>el.hidden=flow);document.getElementById('ctaBand').hidden=flow||r==='home';
  document.querySelectorAll('[data-nav]').forEach(n=>{if(n.dataset.nav===r||(P[r]&&n.dataset.nav==='plans'))n.setAttribute('aria-current','page');else n.removeAttribute('aria-current');});
  document.title=title+' · GarberGuard.com';
- const nav=document.getElementById('nav');nav.classList.remove('open');document.getElementById('menuBtn').setAttribute('aria-expanded','false');
+ const nav=document.getElementById('nav');nav.classList.remove('open');ddSet(false);document.querySelectorAll('[data-mm]').forEach(m=>{if(m.dataset.mm===r)m.setAttribute('aria-current','page');else m.removeAttribute('aria-current');});document.getElementById('menuBtn').setAttribute('aria-expanded','false');
  if(focusTop!==false)window.scrollTo(0,0);
  if(flow&&Q.step===4){const h=document.getElementById('doneH');h&&h.focus({preventScroll:true});}
 }
