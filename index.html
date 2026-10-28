@@ -207,6 +207,20 @@ header.site .in{display:flex;align-items:center;justify-content:space-between;ga
 .phone-panel .rule{width:56px;height:3px;background:var(--grad-a);margin:18px 0 22px}
 .phone-num{font-size:clamp(34px,5vw,48px);font-weight:900;color:#ffffff;text-decoration:none;letter-spacing:-.01em;user-select:all}
 .phone-panel p{color:var(--on-navy-muted);margin-top:16px}
+.contact{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.contact>div{padding:28px 26px;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--line);min-width:0}
+.contact>div:first-child{border-left:0}
+.contact .val{font-size:22px;font-weight:900;color:var(--head);line-height:1.2;font-variant-numeric:tabular-nums}
+.contact a.val{text-decoration:none}
+.contact .val small{display:block;font-size:15px;font-weight:700;color:var(--head);margin-top:2px}
+.contact p{font-size:14px;color:var(--muted)}
+.contact .badge{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--link);background:var(--badge);padding:4px 10px;border-radius:999px}
+@media (max-width:1000px){.contact{grid-template-columns:repeat(2,minmax(0,1fr))}.contact>div:nth-child(3){border-left:0}.contact>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:560px){.contact{grid-template-columns:1fr}.contact>div{border-left:0}.contact>div+div{border-top:1px solid var(--line)}.contact>div{padding:22px 20px}}
+footer.site address{font-style:normal;line-height:1.6}
+footer.site .fc{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}
+footer.site .fc small{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+footer.site .fc b{color:#ffffff;font-weight:800}
 .photo{width:100%;max-width:520px;aspect-ratio:1/1;object-fit:cover;border-radius:20px}
 
 /* faq */
@@ -397,7 +411,7 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
 <body>
 
 
-<div class="util" id="util"><div class="in"><span>Vehicle protection from Garber Automotive Group — family-owned since 1907</span><span class="hide-sm" style="display:flex;gap:24px"><a href="#claims">File a claim</a><a href="tel:8777464917">(877) 746-4917</a></span></div></div>
+<div class="util" id="util"><div class="in"><span>Vehicle protection from Garber Automotive Group — family-owned since 1907</span><span class="hide-sm" style="display:flex;gap:24px"><a href="#claims">File a claim</a><a href="tel:8778847056">(877) 884-7056</a></span></div></div>
 <header class="site" id="siteHeader">
   <div class="in" style="position:relative">
     <a class="brand" href="#home" aria-label="Garber Guard home"><img class="logo-l" src="/assets/logo-color.png" alt="Garber Guard"><img class="logo-d" src="/assets/logo-white.png" alt="Garber Guard"></a>
@@ -422,7 +436,7 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
 <section class="cta grad" id="ctaBand">
   <div class="in">
     <div><h2>Ready to protect your ride?</h2><p>Three quick steps. A specialist calls you with your quote.</p></div>
-    <div class="row"><a class="btn white" href="#get-started" data-start>Start my quote</a><a class="btn ghost-dark" href="tel:8777464917">Call (877) 746-4917</a></div>
+    <div class="row"><a class="btn white" href="#get-started" data-start>Start my quote</a><a class="btn ghost-dark" href="tel:8778847056">Call (877) 884-7056</a></div>
   </div>
 </section>
 <footer class="site" id="siteFooter">
@@ -434,7 +448,8 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
       </div>
       <nav aria-label="Plans"><div class="eyebrow">Plans</div><a href="#tire-wheel">Tire &amp; Wheel</a><a href="#windshield">Windshield</a><a href="#key-remote">Key &amp; Remote</a><a href="#touchscreen">Touchscreen</a><a href="#dent-repair">Paintless Dent Repair</a></nav>
       <nav aria-label="More plans"><div class="eyebrow" aria-hidden="true">&#160;</div><a href="#rust-undercoat">Rust &amp; Undercoat</a><a href="#appearance">Appearance</a><a href="#oil-change">Oil Change Program</a><a href="#combo">5-in-1 Combo</a></nav>
-      <nav aria-label="Help"><div class="eyebrow">Help</div><a href="#claims">File a claim</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a><a href="#get-started" data-start>Get a quote</a><span>(877) 746-4917</span></nav>
+      <nav aria-label="Help"><div class="eyebrow">Help</div><a href="#claims">File a claim</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a><a href="#get-started" data-start>Get a quote</a></nav>
+      <nav aria-label="Contact"><div class="eyebrow">Contact</div><div class="fc"><small>Claims &amp; 24/7 roadside</small><a href="tel:8778847056"><b>(877) 884-7056</b></a></div><div class="fc"><small>Customer service (ET)</small><span>Mon–Fri 8 AM–7 PM<br>Sat 10 AM–3 PM</span></div><div class="fc"><small>Administrator</small><address>P.O. Box 18613<br>Charlotte, NC 28218</address></div></nav>
     </div>
     <p class="legal">Garber Guard plans are optional and not required to buy or lease a vehicle. Administered by Garber Guard, Inc. Coverage, limits and availability vary by plan and state; see your Agreement for complete terms, conditions and exclusions. Repair costs shown are illustrative and vary by make, model and features. © 2026 Garber Guard, Inc.</p>
   </div>
@@ -442,7 +457,7 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
 
 <script>
 (function(){
-const PHONE='(877) 746-4917';
+const PHONE='(877) 884-7056';
 const IMG={tire:'/assets/tire.jpg',windshield:'/assets/windshield.jpg',key:'/assets/key.jpg',touchscreen:'/assets/touchscreen.jpg',dent:'/assets/dent.jpg',rust:'/assets/rust.jpg',appearance:'/assets/appearance.jpg',oil:'/assets/oil.jpg',lifestyle:'/assets/lifestyle.jpg'};
 const S='fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
 const ICON={
@@ -572,9 +587,15 @@ const tilesHTML=(prefix)=>ALL.map(id=>`<label class="tile" for="${prefix}-${id}"
 const card=id=>{const p=P[id];return `<a class="card" href="#${id}"><img src="${IMG[p.img]}" alt="${a(p.alt)}" loading="lazy"><div class="body"><h3>${esc(p.name)}</h3><p>${esc(p.blurb)}</p><div class="spec"><b>${esc(p.card[0])}</b> · ${esc(p.card[1])}</div><span class="more">See coverage →</span></div></a>`;};
 const bundleBanner=()=>`<a class="bundle navy chamfer" href="#combo"><div class="copy on-navy"><div class="eyebrow">Bundle · 5-in-1 Combo</div><h3 style="font-size:clamp(26px,3vw,34px);line-height:1.1">Five protections. One simple plan.</h3><p>Tire &amp; wheel, keys, dents, windshield and 24/7 roadside — one plan, one phone number, $0 deductible.</p><div class="tags"><span class="tag">Tire &amp; Wheel</span><span class="tag">Key &amp; Remote</span><span class="tag">Paintless Dent Repair</span><span class="tag">Windshield Repair</span><span class="tag">24/7 Roadside</span></div><span style="font-weight:800;display:inline-flex;gap:8px;align-items:center;margin-top:4px">See what's in the bundle ${ARROW}</span></div><div class="five"><b>5</b><span class="eyebrow" style="color:#ffffff">In one</span></div></a>`;
 const stepsHTML=()=>`<div class="steps"><div class="step-i"><div class="shield">1</div><div><h3>Tell us about your vehicle</h3><p>Year, make, model and mileage. No VIN hunting.</p></div></div><div class="step-i"><div class="shield">2</div><div><h3>Choose what to protect</h3><p>Pick one plan, a few, or the 5-in-1 bundle. Unsure? We'll recommend.</p></div></div><div class="step-i"><div class="shield">3</div><div><h3>Get a call with your quote</h3><p>A specialist calls at the time you choose with a personalized quote. No obligation.</p></div></div></div>`;
-const phonePanel=()=>`<div class="phone-panel navy chamfer on-navy"><div class="eyebrow">Claims &amp; prior authorization</div><div class="rule"></div><a class="phone-num" href="tel:8777464917">${PHONE}</a><p>One number for every Garber Guard plan. Roadside help is available 24/7 on plans that include it.</p></div>`;
+const contactGrid=()=>`<div class="contact">
+ <div><span class="eyebrow">Claims</span><a class="val" href="tel:8778847056">${PHONE}</a><p>All product claims. Prior authorization required.</p></div>
+ <div><span class="eyebrow">Emergency roadside</span><a class="val" href="tel:8778847056">${PHONE}</a><span class="badge">24 / 7 / 365</span><p>On plans that include roadside assistance.</p></div>
+ <div><span class="eyebrow">Customer service</span><span class="val" style="font-size:18px">Mon–Fri 8 AM–7 PM<small>Saturday 10 AM–3 PM</small></span><p>Eastern Time</p></div>
+ <div><span class="eyebrow">Administrator address</span><address class="val" style="font-size:18px;font-style:normal">P.O. Box 18613<small>Charlotte, NC 28218</small></address><p>Mailing address for claims and cancellations.</p></div>
+</div>`;
+const phonePanel=()=>`<div class="phone-panel navy chamfer on-navy"><div class="eyebrow">Claims &amp; prior authorization</div><div class="rule"></div><a class="phone-num" href="tel:8778847056">${PHONE}</a><p>All product claims. Prior authorization is required before any repair. The same number reaches 24/7/365 emergency roadside assistance on plans that include it.</p></div>`;
 const claimList=()=>`<ol class="ol">${[['Go to your selling Garber dealer','or any licensed repair facility.'],['They call us to authorize','before the repair starts.'],['We settle directly with them,','up to your plan limits.']].map((s,i)=>`<li><span class="num">${i+1}</span><span><b>${s[0]}</b> ${s[1]}</span></li>`).join('')}</ol>`;
-const FAQ=[['Why don\'t you list prices online?','Your price depends on your vehicle, its mileage, the term you choose and which protections you combine. Rather than show a number that doesn\'t fit, a specialist builds an exact quote with you.'],['Do I have to buy protection to buy or lease a car?','No. Every Garber Guard plan is an optional add-on and is never required to buy or lease.'],['Can I get coverage if I didn\'t buy from Garber?','[Confirm eligibility rules for vehicles not purchased at Garber.]'],['What happens if I sell my vehicle?','Most plans transfer to a private buyer. Some carry a small transfer fee — see your Agreement for details.'],['Where can I get repairs done?','At your selling Garber dealer or a licensed repair facility. They call us to authorize before the work.'],['How do I file a claim?','There are no claim forms. The repair shop calls '+PHONE+' to authorize, and we settle with them directly.']];
+const FAQ=[['Why don\'t you list prices online?','Your price depends on your vehicle, its mileage, the term you choose and which protections you combine. Rather than show a number that doesn\'t fit, a specialist builds an exact quote with you.'],['Do I have to buy protection to buy or lease a car?','No. Every Garber Guard plan is an optional add-on and is never required to buy or lease.'],['Can I get coverage if I didn\'t buy from Garber?','[Confirm eligibility rules for vehicles not purchased at Garber.]'],['What happens if I sell my vehicle?','Most plans transfer to a private buyer. Some carry a small transfer fee — see your Agreement for details.'],['Where can I get repairs done?','At your selling Garber dealer or a licensed repair facility. They call us to authorize before the work.'],['How do I file a claim?','There are no claim forms. The repair shop calls '+PHONE+' to authorize, and we settle with them directly. Prior authorization is required.'],['What are your customer service hours?','Monday through Friday 8 AM to 7 PM, and Saturday 10 AM to 3 PM, Eastern Time. Emergency roadside assistance is available 24/7/365 on plans that include it.'],['How do I cancel a plan?','Mail cancellation requests to the plan administrator at P.O. Box 18613, Charlotte, NC 28218. Some products, such as Appearance Protection, are applied to the vehicle and can\'t be canceled. See your Agreement for terms.']];
 const faqHTML=(list,openFirst)=>list.map((f,i)=>`<details ${openFirst&&i===0?'open':''}><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join('');
 
 /* ---------- views ---------- */
@@ -589,7 +610,7 @@ function vHome(){return `
 <section><div class="in trust"><div><b>$0</b><strong>Deductible on most plans</strong><span>Tire &amp; Wheel carries a $100 deductible.</span></div><div><b>1 call</b><strong>To authorize any claim</strong><span>No claim forms. We settle with the shop directly.</span></div><div><b>Up to 7 yrs</b><strong>Of coverage</strong><span>Terms that fit how long you keep your vehicle.</span></div><div><b>24/7</b><strong>Roadside on select plans</strong><span>Towing, jump-starts, lock-outs and fuel.</span></div></div></section>
 <section class="band soft"><div class="in"><div class="sec-head"><div><div class="eyebrow">Protection plans</div><h2 class="h2" style="margin-top:12px">Choose what to protect.</h2></div><p class="lede" style="max-width:440px">Every plan is optional and priced to your vehicle, term and coverage, so your specialist builds the quote with you.</p></div><div class="home-plans">${bundleBanner()}<div class="cards">${ORDER.map(card).join('')}</div></div></div></section>
 <section class="band"><div class="in"><div style="text-align:center;max-width:660px;margin:0 auto 56px"><div class="eyebrow">How it works</div><h2 class="h2" style="margin:12px 0 14px">Your quote, built by a person — not a pricing page.</h2><p class="lede" style="margin:0 auto">Coverage depends on your vehicle and how you drive. Tell us the basics and a Garber Guard specialist does the rest.</p></div>${stepsHTML()}<div style="text-align:center;margin-top:48px"><a class="btn" href="#get-started" data-start>Start my quote</a></div></div></section>
-<section class="band soft"><div class="in split"><div><div class="eyebrow">Using your coverage</div><h2 class="h2" style="margin:12px 0 16px">Something happened? One call handles it.</h2><p class="lede" style="margin-bottom:28px">No claim forms and no waiting for a reimbursement check.</p>${claimList()}</div>${phonePanel()}</div></section>
+<section class="band soft"><div class="in split"><div><div class="eyebrow">Using your coverage</div><h2 class="h2" style="margin:12px 0 16px">Something happened? One call handles it.</h2><p class="lede" style="margin-bottom:28px">No claim forms and no waiting for a reimbursement check.</p>${claimList()}</div>${phonePanel()}</div><div class="in" style="margin-top:40px">${contactGrid()}</div></section>
 <section class="band"><div class="in split"><img class="photo" src="${IMG.lifestyle}" alt="Family arriving at a hillside meadow with their SUV" loading="lazy"><div><div class="eyebrow">Protection backed by peace of mind</div><h2 class="h2" style="margin:12px 0 16px">From a dealer group that's been doing the right thing since 1907.</h2><p style="font-size:17px;margin-bottom:16px">Garber Guard is the protection division of Garber Automotive Group, a third-generation, family-owned group with dealerships across six states. Your plan is administered by Garber Guard, Inc., and serviced by technicians who know your vehicle.</p><p style="font-size:17px">Already drive a Garber vehicle? Great. Bought somewhere else? You're welcome here too.</p></div></div></section>
 <section class="band soft"><div class="in"><div class="faq"><div class="eyebrow" style="text-align:center">Questions</div><h2 class="h2" style="text-align:center;margin:12px 0 28px">Good to know</h2>${faqHTML(FAQ.slice(0,4),true)}<p style="text-align:center;margin-top:28px"><a class="link-btn" href="#faq">See all questions →</a></p></div></div></section>`;}
 
@@ -602,7 +623,8 @@ function vHow(){return `<section class="page-head navy chamfer on-navy"><div cla
 
 function vClaims(){return `<section class="page-head navy chamfer on-navy"><div class="in"><div class="eyebrow">Claims</div><h1>Something happened? One call handles it.</h1><p>No claim forms and no reimbursement wait. The shop calls us, and we pay them directly.</p></div></section>
 <section class="band"><div class="in split"><div><h2 class="h2" style="margin-bottom:28px">How a claim works</h2><div class="stack" style="gap:28px">${CLAIM_STEPS.map((s,i)=>`<div class="step-i"><div class="shield">${i+1}</div><div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div></div>`).join('')}</div></div>${phonePanel()}</div></section>
-<section class="band soft"><div class="in"><h2 class="h2" style="margin-bottom:12px">Have these ready</h2><p class="lede" style="margin-bottom:28px">It helps the shop authorize your repair quickly.</p><div class="boxes"><div class="box">${ICON.shield}<b>Your Agreement</b><p>Or the name the plan is under.</p></div><div class="box">${ICON.car}<b>Your vehicle</b><p>Year, make, model and current mileage.</p></div><div class="box">${ICON.redo}<b>What happened</b><p>When and how the damage occurred.</p></div></div></div></section>`;}
+<section class="band soft"><div class="in"><div class="eyebrow">Contact &amp; support</div><h2 class="h2" style="margin:12px 0 28px">Who to call, and when.</h2>${contactGrid()}</div></section>
+<section class="band"><div class="in"><h2 class="h2" style="margin-bottom:12px">Have these ready</h2><p class="lede" style="margin-bottom:28px">It helps the shop authorize your repair quickly.</p><div class="boxes"><div class="box">${ICON.shield}<b>Your Agreement</b><p>Or the name the plan is under.</p></div><div class="box">${ICON.car}<b>Your vehicle</b><p>Year, make, model and current mileage.</p></div><div class="box">${ICON.redo}<b>What happened</b><p>When and how the damage occurred.</p></div></div></div></section>`;}
 
 function vFaq(){return `<section class="page-head navy chamfer on-navy"><div class="in"><div class="eyebrow">FAQ</div><h1>Good to know.</h1><p>Answers to the questions customers ask most. Something else? Call ${PHONE}.</p></div></section>
 <section class="band"><div class="in"><div class="faq">${faqHTML(FAQ,true)}</div></div></section>`;}
