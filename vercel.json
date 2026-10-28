@@ -1,3 +1,24 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "buildCommand": "node build.mjs",
+  "outputDirectory": "dist",
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/plans", "destination": "/protection-plans", "permanent": true },
+    { "source": "/tire-wheel", "destination": "/protection-plans/tire-wheel-protection", "permanent": true },
+    { "source": "/windshield", "destination": "/protection-plans/windshield-protection", "permanent": true },
+    { "source": "/key-remote", "destination": "/protection-plans/key-replacement", "permanent": true },
+    { "source": "/touchscreen", "destination": "/protection-plans/touchscreen-protection", "permanent": true },
+    { "source": "/dent-repair", "destination": "/protection-plans/paintless-dent-repair", "permanent": true },
+    { "source": "/rust-undercoat", "destination": "/protection-plans/rust-undercoat-protection", "permanent": true },
+    { "source": "/appearance", "destination": "/protection-plans/appearance-protection", "permanent": true },
+    { "source": "/oil-change", "destination": "/protection-plans/prepaid-oil-change-program", "permanent": true },
+    { "source": "/combo", "destination": "/protection-plans/5-in-1-protection-bundle", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": ".*\\.vercel\\.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    }
+  ]
 }
