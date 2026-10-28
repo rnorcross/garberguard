@@ -594,7 +594,7 @@ function vHome(){return `
 <section class="band soft"><div class="in"><div class="faq"><div class="eyebrow" style="text-align:center">Questions</div><h2 class="h2" style="text-align:center;margin:12px 0 28px">Good to know</h2>${faqHTML(FAQ.slice(0,4),true)}<p style="text-align:center;margin-top:28px"><a class="link-btn" href="#faq">See all questions →</a></p></div></div></section>`;}
 
 function vPlans(){return `<section class="page-head navy chamfer on-navy"><div class="in"><div class="eyebrow">Protection plans</div><h1>Nine ways to protect what you drive.</h1><p>Every plan is optional, transferable on most terms and handled with one phone call. Choose one, combine a few, or bundle five.</p></div></section>
-<section class="band"><div class="in">${bundleBanner()}<div class="cards">${ORDER.map(card).join('')}</div></div></section>`;}
+<section class="band"><div class="in"><div class="home-plans">${bundleBanner()}<div class="cards">${ORDER.map(card).join('')}</div></div></div></section>`;}
 
 function vHow(){return `<section class="page-head navy chamfer on-navy"><div class="in"><div class="eyebrow">How it works</div><h1>Three steps to a quote built around your vehicle.</h1><p>No pricing tables to decode. Tell us the basics and a Garber Guard specialist calls with exact numbers.</p></div></section>
 <section class="band"><div class="in">${stepsHTML()}<div style="margin-top:48px"><a class="btn" href="#get-started" data-start>Start my quote</a></div></div></section>
