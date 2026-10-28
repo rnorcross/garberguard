@@ -213,6 +213,17 @@ P['oil-change'].options[2].d='A technician checks lights, wipers, tires, brakes,
 P['oil-change'].faq=[['Where do I get service?','At your selling Garber dealer\'s service drive. Present your contract at check-in; there are no claim forms.'],['Do services expire?','No. Prepaid services don\'t expire.'],['Is roadside included?','It\'s available as an option, up to $150 per occurrence.'],['Can I transfer it?','Yes, within 15 days of sale for a one-time $50 fee.'],['Can I cancel?','Yes. You get a full refund within 60 days if no services have been used, then a pro-rated refund less a $50 fee.']];
 P['combo'].faq.push(['Is windshield replacement included?','The combo covers chip and crack repair. Full replacement is available with Windshield Protection Enhanced.']);
 
+/* photos for products without sell-sheet images: Unsplash (free license), served from Unsplash's CDN */
+const UNS=id=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&q=75`;
+Object.assign(IMG,{vsc:UNS('1771340012378-3c86cb649193'),commercial:UNS('1787630551595-4fbf6ed792e9'),certified:UNS('1777175013302-eaf4b3ef785a'),affordable:UNS('1563161084-d8d8ff841bae'),tech:UNS('1639322913462-a97945bf7b85'),vpp:UNS('1758411898280-2dc7c95e0ba7'),ewt:UNS('1529369623266-f5264b696110')});
+Object.assign(P['vsc'],{img:'vsc',alt:'Mechanic inspecting a car engine with the hood open'});
+Object.assign(P['commercial'],{img:'commercial',alt:'Work pickup truck bed loaded with cables and a traffic cone'});
+Object.assign(P['certified-wrap'],{img:'certified',alt:'New cars on display in a dealership showroom'});
+Object.assign(P['affordable-wrap'],{img:'affordable',alt:'Coastal highway seen past a car side mirror'});
+Object.assign(P['tech'],{img:'tech',alt:'Large center touchscreen in a pickup truck dashboard'});
+Object.assign(P['vpp'],{img:'vpp',alt:'White SUV parked beside autumn trees'});
+Object.assign(P['ewt'],{img:'ewt',alt:'Driver standing beside an SUV on an open road'});
+
 /* ---------- groups ---------- */
 const GROUPS=[
  {name:'Mechanical protection',desc:'Breakdown coverage for the engine, transmission, electronics and more.',ids:['vsc','certified-wrap','affordable-wrap','tech','commercial']},
