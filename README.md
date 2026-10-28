@@ -19,13 +19,18 @@ Canonical URLs, the sitemap and structured data use `https://garberguard.com`; o
 |---|---|
 | Home | `/` |
 | All plans | `/protection-plans` |
-| Plans | `/protection-plans/tire-wheel-protection`, `/windshield-protection`, `/key-replacement`, `/touchscreen-protection`, `/paintless-dent-repair`, `/rust-undercoat-protection`, `/appearance-protection`, `/prepaid-oil-change-program`, `/5-in-1-protection-bundle` |
+| Mechanical | `/protection-plans/vehicle-service-contract`, `/certified-pre-owned-wrap`, `/high-mileage-powertrain-coverage`, `/vehicle-technology-protection`, `/commercial-vehicle-service-contract` |
+| Everyday | `/protection-plans/tire-wheel-protection`, `/windshield-protection`, `/key-replacement`, `/touchscreen-protection`, `/paintless-dent-repair`, `/5-in-1-protection-bundle` |
+| Appearance & rust | `/protection-plans/appearance-protection`, `/rust-undercoat-protection` |
+| Lease & maintenance | `/protection-plans/vehicle-protection-plus-lease`, `/lease-excess-wear-and-tear`, `/prepaid-maintenance` |
 | Info | `/how-it-works`, `/claims`, `/faq` |
 | Quote flow | `/get-started` (noindex) |
 
-Earlier short URLs (`/tire-wheel`, `/plans`, …) permanently redirect. `*.vercel.app` hosts send `X-Robots-Tag: noindex` so only the real domain gets indexed.
+Product content follows the Garber Guard Product Suite Overview (July 2026). Groups are set in `GROUPS` in `src/site.js`.
+Earlier URLs (`/tire-wheel`, `/plans`, `/protection-plans/prepaid-oil-change-program`, …) permanently redirect. `*.vercel.app` hosts send `X-Robots-Tag: noindex` so only the real domain gets indexed.
 
 ## Before launch
 - The get-started flow does not submit leads yet; it keeps the request in the visitor's browser. Connect it to the F&I lead destination and remove the "Prototype" note on the confirmation screen.
-- Fill placeholders: non-Garber vehicle eligibility (FAQ), consent language (legal review), callback response time (confirmation screen).
+- Fill placeholders: consent language (legal review), callback response time (confirmation screen).
+- Excess Wear & Tear shows "Not yet available in New York"; remove the `notice` on `ewt` in `src/site.js` once NY is approved.
 - Connect GarberGuard.com in Vercel, then submit `https://garberguard.com/sitemap.xml` in Google Search Console.

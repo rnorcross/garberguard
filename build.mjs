@@ -11,7 +11,7 @@ const shell = fs.readFileSync('src/shell.html', 'utf8');
 const siteCode = fs.readFileSync('src/site.js', 'utf8');
 
 const G = vm.runInContext(
-  siteCode + '\n;({P,ORDER,ALL,PATHS,FAQ,PHONE,TITLES,DESC,vHome,vPlans,vHow,vClaims,vFaq,vProduct,vNotFound,vStep1,ddPanelHTML})',
+  siteCode + '\n;({P,ORDER,ALL,PATHS,FAQ,PHONE,TITLES,DESC,vHome,vPlans,vHow,vClaims,vFaq,vProduct,vNotFound,vStep1,ddPanelHTML,footPlansHTML,GROUPS})',
   vm.createContext({ console })
 );
 
@@ -82,6 +82,7 @@ function renderPage(pg) {
     .replace('{{ROBOTS}}', pg.noindex ? '<meta name="robots" content="noindex, follow">\n' : '')
     .replace('{{JSONLD}}', pg.ld.map(ld).join('\n'))
     .replace('{{DDPANEL}}', () => G.ddPanelHTML(pg.dd || ''))
+    .replace('{{FOOTPLANS}}', () => G.footPlansHTML())
     .replace('{{MAIN}}', () => pg.main);
   if (pg.flow) html = html.replace(/<!--chrome-->[\s\S]*?<!--\/chrome-->/g, '');
   else html = html.replace(/<!--\/?chrome-->\n?/g, '');

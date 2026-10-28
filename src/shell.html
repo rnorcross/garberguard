@@ -103,7 +103,7 @@ header.site .in{display:flex;align-items:center;justify-content:space-between;ga
 .dd-btn:hover,.dd-btn[aria-current="page"],.dd-btn[aria-expanded="true"]{border-bottom-color:var(--link)}
 .dd-btn .chev{transition:transform .2s}
 .dd-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
-.dd-panel{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 1px);background:var(--surface);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;box-shadow:0 28px 60px var(--shadow);padding:28px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;animation:ddIn .18s ease-out}
+.dd-panel{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 1px);background:var(--surface);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;box-shadow:0 28px 60px var(--shadow);padding:24px 24px 0;display:block;animation:ddIn .18s ease-out}
 @media (min-width:720px){.dd-panel{left:max(32px,env(safe-area-inset-left,0px));right:max(32px,env(safe-area-inset-right,0px))}}
 .dd-panel[hidden]{display:none!important}
 @keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
@@ -119,6 +119,18 @@ header.site .in{display:flex;align-items:center;justify-content:space-between;ga
 .mm-item b{display:block;font-size:15.5px;font-weight:800;color:var(--head);line-height:1.25}
 .mm-item span span{display:block;font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:2px}
 .mm-side{display:flex;flex-direction:column;gap:14px}
+.mm-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 20px}
+.mm-col{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mm-gh{margin:4px 12px 8px;font-size:11px}
+.mm-col .mm-item{padding:9px 12px;gap:12px}
+.mm-col .mm-ic{width:36px;height:36px;border-radius:9px}
+.mm-col .mm-ic svg{width:20px;height:20px}
+.mm-col .mm-item b{font-size:14.5px}
+.mm-col .mm-item span span{font-size:12.5px}
+.mm-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:16px -24px 0;padding:16px 36px;border-top:1px solid var(--line);background:var(--soft);border-radius:0 0 20px 20px;font-size:14px;color:var(--muted)}
+.mm-foot b{color:var(--head)}
+.mm-links{display:flex;gap:24px}
+.mm-links a{font-weight:800;text-decoration:none}
 .mm-bundle{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;text-decoration:none;--chamfer:24px}
 .mm-bundle b{font-size:21px;font-weight:900;line-height:1.15;color:#ffffff}
 .mm-bundle p{font-size:14px;color:var(--on-navy-muted)}
@@ -139,6 +151,9 @@ header.site .in{display:flex;align-items:center;justify-content:space-between;ga
   .dd-panel{position:static;border:0;border-radius:0;box-shadow:none;padding:6px 0 10px;grid-template-columns:1fr;gap:10px;animation:none}
   .nav .mm-item{padding:10px 6px;border-bottom:0}
   .mm-grid{grid-template-columns:1fr;gap:0}
+  .mm-cols{grid-template-columns:1fr;gap:6px}
+  .mm-gh{margin:12px 6px 4px}
+  .mm-foot{display:none}
   .mm-head{display:none}
   .mm-help{display:none}
   .nav .mm-bundle{padding:18px;border-bottom:0}
@@ -230,6 +245,39 @@ footer.site address{font-style:normal;line-height:1.6}
 footer.site .fc{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}
 footer.site .fc small{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 footer.site .fc b{color:#ffffff;font-weight:800}
+.card .art{height:190px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--grad-a),var(--grad-b));color:#ffffff}
+.card .art svg{width:84px;height:84px;stroke-width:1.3}
+.card .art b{font-size:110px;font-weight:900;line-height:1}
+.p-hero .pic.art svg{width:44%;max-width:200px;height:auto;color:#ffffff;stroke-width:1.2}
+.hero-note{display:inline-flex;align-items:center;gap:8px;margin:-12px 0 26px;padding:8px 14px;border-radius:999px;background:var(--navy-chip);font-weight:800;font-size:14px}
+.hero-note svg{width:18px;height:18px;color:var(--lav)}
+.notice{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:14px;background:var(--tint);color:var(--fg)}
+.notice svg{width:22px;height:22px;flex:none;color:var(--link);margin-top:1px}
+.notice b{color:var(--head)}
+.xlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 28px}
+.xlist li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.xlist svg{width:18px;height:18px;flex:none;color:var(--muted);margin-top:3px}
+.compare tbody th{text-align:left;font-weight:800;color:var(--head);padding:14px 12px;border-bottom:1px solid var(--line)}
+.groups{display:flex;flex-direction:column;gap:28px}
+.grp{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:28px;padding-top:28px;border-top:1px solid var(--line)}
+.grp:first-child{border-top:0;padding-top:0}
+.grp-h h3{font-size:22px;margin-bottom:6px}
+.grp-h p{font-size:15px;color:var(--muted)}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pl{display:flex;gap:14px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
+.pl:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--shadow);border-color:var(--line-strong)}
+.pl:hover .mm-ic{background:var(--btn);color:#ffffff}
+.pl b{display:block;font-size:15.5px;font-weight:800;color:var(--head);line-height:1.25}
+.pl span span{display:block;font-size:13.5px;color:var(--muted);margin-top:2px;line-height:1.35}
+@media (max-width:820px){.grp{grid-template-columns:1fr;gap:16px}}
+.grp-title{margin-bottom:28px;display:flex;flex-direction:column;gap:8px}
+.chip.static{cursor:default}
+.cards.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:980px){.cards.c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.cards.c3{grid-template-columns:1fr}}
+.og-h{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.fit{display:table;margin:4px 0 2px;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--link);background:var(--badge);padding:2px 8px;border-radius:999px;vertical-align:2px}
+.oq .nt{display:block;font-size:12.5px;font-weight:700;color:var(--head);margin-top:4px}
 .photo{width:100%;max-width:520px;aspect-ratio:1/1;object-fit:cover;border-radius:20px}
 
 /* faq */
@@ -247,7 +295,8 @@ details p{margin-top:12px;max-width:68ch}
 .cta p{color:rgba(255,255,255,.9);font-size:18px;margin-top:6px}
 .cta .row{display:flex;gap:14px;flex-wrap:wrap}
 footer.site{background:#05054f;color:rgba(255,255,255,.8);padding-block:64px 40px;font-size:14px}
-footer.site .cols{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
+footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px 32px}
+footer.site .cols>div:first-child{grid-column:1/-1}
 footer.site nav{display:flex;flex-direction:column;gap:10px;min-width:160px}
 footer.site nav .eyebrow{color:#a9aef0;margin-bottom:4px}
 footer.site a{color:rgba(255,255,255,.85);text-decoration:none}
@@ -461,12 +510,11 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
         <img src="/assets/logo-white.png" alt="Garber Guard" style="height:46px;display:block">
         <p style="margin-top:14px;max-width:280px;line-height:1.6">The vehicle protection division of Garber Automotive Group.</p>
       </div>
-      <nav aria-label="Plans"><div class="eyebrow">Plans</div><a href="/protection-plans/tire-wheel-protection">Tire &amp; Wheel</a><a href="/protection-plans/windshield-protection">Windshield</a><a href="/protection-plans/key-replacement">Key &amp; Remote</a><a href="/protection-plans/touchscreen-protection">Touchscreen</a><a href="/protection-plans/paintless-dent-repair">Paintless Dent Repair</a></nav>
-      <nav aria-label="More plans"><div class="eyebrow" aria-hidden="true">&#160;</div><a href="/protection-plans/rust-undercoat-protection">Rust &amp; Undercoat</a><a href="/protection-plans/appearance-protection">Appearance</a><a href="/protection-plans/prepaid-oil-change-program">Oil Change Program</a><a href="/protection-plans/5-in-1-protection-bundle">5-in-1 Combo</a></nav>
+      {{FOOTPLANS}}
       <nav aria-label="Help"><div class="eyebrow">Help</div><a href="/claims">File a claim</a><a href="/how-it-works">How it works</a><a href="/faq">FAQ</a><a href="/get-started" data-start>Get a quote</a></nav>
       <nav aria-label="Contact"><div class="eyebrow">Contact</div><div class="fc"><small>Claims &amp; 24/7 roadside</small><a href="tel:8778847056"><b>(877) 884-7056</b></a></div><div class="fc"><small>Customer service (ET)</small><span>Mon–Fri 8 AM–7 PM<br>Sat 10 AM–3 PM</span></div><div class="fc"><small>Administrator</small><address>P.O. Box 18613<br>Charlotte, NC 28218</address></div></nav>
     </div>
-    <p class="legal">Garber Guard plans are optional and not required to buy or lease a vehicle. Administered by Garber Guard, Inc. Coverage, limits and availability vary by plan and state; see your Agreement for complete terms, conditions and exclusions. Repair costs shown are illustrative and vary by make, model and features. © 2026 Garber Guard, Inc.</p>
+    <p class="legal">Garber Guard plans are optional and not required to buy or lease a vehicle. Plans are provided by Garber Guard, Inc. (Garber Guard Florida, Inc. in Florida). Coverage begins on day one. Coverage, limits and availability vary by plan and state; see your Agreement for complete terms, conditions and exclusions. Repair costs shown are illustrative and vary by make, model and features. © 2026 Garber Guard, Inc.</p>
   </div>
 </footer>
 <!--/chrome-->
