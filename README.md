@@ -3,7 +3,7 @@
 Site for Garber Guard, the vehicle protection (F&I) division of Garber Automotive Group.
 
 - Static site: `index.html` plus images in `assets/`. No build step.
-- Pages are hash routes: `#plans`, `#tire-wheel`, `#windshield`, `#key-remote`, `#touchscreen`, `#dent-repair`, `#rust-undercoat`, `#appearance`, `#oil-change`, `#combo`, `#how-it-works`, `#claims`, `#faq`, `#get-started`.
+- Every page has its own URL: `/plans`, `/tire-wheel`, `/windshield`, `/key-remote`, `/touchscreen`, `/dent-repair`, `/rust-undercoat`, `/appearance`, `/oil-change`, `/combo`, `/how-it-works`, `/claims`, `/faq`, `/get-started`. `vercel.json` rewrites all paths to `index.html`, which renders the right page. Old `#` links redirect to the matching URL.
 - No pricing is shown anywhere on the site.
 
 ## Before launch
