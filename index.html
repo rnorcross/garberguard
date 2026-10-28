@@ -82,7 +82,7 @@ p{margin:0}
 .util a{color:#ffffff;font-weight:700;text-decoration:none}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
 header.site .in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
-.brand img{height:40px;display:block}
+.brand img{height:50px;display:block}
 .nav{display:flex;gap:28px;align-items:center}
 .nav>a{color:var(--head);font-weight:700;font-size:15px;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
 .nav>a:hover,.nav>a[aria-current="page"]{border-bottom-color:var(--link)}
@@ -134,12 +134,12 @@ header.site .in{display:flex;align-items:center;justify-content:space-between;ga
   .util .hide-sm{display:none}
   .util .in>span:first-child{font-size:12px}
 }
-@media (max-width:480px){.util{display:none}.head-cta .btn{display:none}.brand img{height:34px}}
+@media (max-width:480px){.util{display:none}.head-cta .btn{display:none}.brand img{height:40px}}
 
 /* hero */
 .hero{position:relative;--chamfer:56px}
 .hero .in{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-block:72px 112px}
-.hero h1{font-size:clamp(36px,5.4vw,58px);line-height:1.04;letter-spacing:-.02em;margin:16px 0 20px}
+.hero h1{font-size:clamp(36px,5.4vw,58px);line-height:1.04;letter-spacing:-.02em;margin:0 0 20px}
 .hero p.sub{font-size:19px;color:var(--on-navy-muted);max-width:34em;margin-bottom:28px}
 .hero-copy{flex:1 1 420px;min-width:0}
 .bul{display:flex;flex-direction:column;gap:14px;font-weight:700}
@@ -575,7 +575,7 @@ const faqHTML=(list,openFirst)=>list.map((f,i)=>`<details ${openFirst&&i===0?'op
 /* ---------- views ---------- */
 function vHome(){return `
 <section class="hero navy chamfer on-navy"><div class="in">
-  <div class="hero-copy"><div class="eyebrow">Garber Guard protection plans</div><h1>Protection for the things your warranty leaves out.</h1><p class="sub">Tires, keys, glass, screens, dents and more — covered with $0 deductibles on most plans and one phone number for every claim.</p>
+  <div class="hero-copy"><h1>Protection for the things your warranty leaves out.</h1><p class="sub">Tires, keys, glass, screens, dents and more — covered with $0 deductibles on most plans and one phone number for every claim.</p>
   <div class="bul"><div>${CK}No claim forms. The shop calls us, we pay them.</div><div>${CK}Coverage that transfers when you sell</div><div>${CK}For any vehicle, bought at Garber or not</div></div></div>
   <form class="picker" id="pickerForm"><h2>What would you like to protect?</h2><p style="font-size:15px;color:var(--muted);margin-top:6px">Pick as many as you like. Not sure? Skip it and your specialist can recommend.</p>
   <fieldset><legend class="sr">Protections</legend><div class="tiles">${tilesHTML('h')}</div></fieldset>
