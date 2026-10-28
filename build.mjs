@@ -46,7 +46,6 @@ const org = {
 // id, url, main html, title, description, nav key, json-ld, options
 const pages = [];
 const PLANS = ['Protection plans', G.PATHS.plans];
-pages.push({ id: 'home-alt', main: G.vHome(true), nav: '', noindex: true, ld: [], noCta: true });
 pages.push({ id: 'home', main: G.vHome(), nav: '', ld: [org, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Garber Guard', url: SITE + '/' }], noCta: true });
 pages.push({ id: 'plans', main: G.vPlans(), nav: 'plans', ld: [crumbs([['Home', '/'], PLANS]), {
   '@context': 'https://schema.org', '@type': 'ItemList', name: 'Garber Guard protection plans',
