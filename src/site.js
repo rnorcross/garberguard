@@ -45,7 +45,7 @@ const P={
  'key-remote':{seo:'Key & Remote Replacement',name:'Key & Remote',short:'Key & Remote',cat:'Ancillary protection',img:'key',alt:'Smart key fob resting by a gear shifter',
    head:"A lost key shouldn't cost five hundred dollars.",sub:"Smart keys, fobs and remotes replaced and reprogrammed when they're lost, stolen or stop working.",
    blurb:'Lost, stolen or dead smart keys and fobs — replaced and programmed by the dealer.',
-   specs:[['Term','1–7 years'],['Deductible','$0'],['Per year','$800'],['Total','$2,500']],card:['1–7 years','$0 deductible'],
+   specs:[['Term','1–7 years'],['Deductible','$0'],['Per year','$800'],['Total coverage','$2,500']],card:['1–7 years','$0 deductible'],
    coveredTitle:'Every kind of key, covered.',coveredLede:'Today\'s keys are computers — cut, cloned and programmed to your vehicle.',
    covered:['Lost keys & remotes','Stolen keys & remotes','Inoperable fobs','Smart proximity keys','Laser-cut & switchblade keys','Dealer cutting & programming','Push-button start remotes','Taxes on covered parts'],
    extrasTitle:'Built in',extras:[['shield','Reprogrammed for security','Every lost or stolen key is reprogrammed by the dealer before a replacement is issued.'],['transfer','Yearly and total limits','Up to $800 a year and $2,500 over the life of your plan.']],
@@ -55,17 +55,17 @@ const P={
  'touchscreen':{seo:'Touchscreen Protection',name:'Touchscreen',short:'Touchscreen',cat:'Ancillary protection',img:'touchscreen',alt:'Hand tapping a dashboard touchscreen',
    head:'The screen runs the car. Keep it flawless.',sub:'Chips, cracks and scratches on your factory displays — repaired or replaced, up to $7,500.',
    blurb:'Chips, cracks and scratches on center, cluster, HUD and rear-seat displays.',
-   specs:[['Term','12–84 mo'],['Deductible','$0'],['Aggregate','$7,500'],['Transfers','Yes']],card:['12–84 mo','$0 deductible'],
+   specs:[['Term','12–84 mo'],['Deductible','$0'],['Total coverage','$7,500'],['Transfers','Yes']],card:['12–84 mo','$0 deductible'],
    coveredTitle:'Every display in the vehicle.',coveredLede:'Displays are integrated modules, not glass you can swap — so damage adds up fast.',
    covered:['Surface chips','Cracks','Scratches','Center touchscreen','Digital gauge cluster','Rear-seat displays','Head-up display glass','One reapplication after replacement'],
-   extrasTitle:'Why it matters',extras:[['shield','Factory-grade replacement','Damaged screens replaced to the fullest extent possible, up to the $7,500 aggregate.'],['redo','Protection reapplied','Bring the vehicle back within three days and the protection product is reapplied.'],['transfer','Fully transferable','Coverage moves with the vehicle to a private buyer ($50 fee).']],
+   extrasTitle:'Why it matters',extras:[['shield','Factory-grade replacement','Damaged screens replaced to the fullest extent possible, up to $7,500 in total coverage.'],['redo','Protection reapplied','Bring the vehicle back within three days and the protection product is reapplied.'],['transfer','Fully transferable','Coverage moves with the vehicle to a private buyer ($50 fee).']],
    costs:[['OEM Center Display','$1,800'],['Head-Unit Module','$2,200'],['Digital Gauge Cluster','$1,400'],['Rear-Seat Display','$900'],['Touch Calibration','$300'],['Bezel & Install','$250']],costsTitle:'What a damaged display costs out of pocket',costNote:'Illustrative costs; vary by make, model and system.',
    faq:[['Is there anything I need to do to qualify?','Screens must be treated with the protection product to qualify.']],
    pair:['key-remote','windshield','appearance']},
  'dent-repair':{seo:'Paintless Dent Repair',name:'Paintless Dent Repair',short:'Dent Repair',cat:'Ancillary protection',img:'dent',alt:'Small door dings on a silver car panel',
    head:'Door dings and dents, made to disappear.',sub:'Minor dents massaged out with specialized tools — no fillers, no repaint, and your factory finish untouched.',
    blurb:'Door dings and dents up to 4" massaged out — your factory paint stays untouched.',
-   specs:[['Term','12–84 mo'],['Deductible','$0'],['Per visit','$2,500'],['Aggregate','$5,000']],card:['12–84 mo','$0 deductible'],
+   specs:[['Term','12–84 mo'],['Deductible','$0'],['Per visit','$2,500'],['Total coverage','$5,000']],card:['12–84 mo','$0 deductible'],
    explainTitle:'How paintless dent repair works',explain:'PDR is a factory-developed technique: a technician works the metal back to shape from behind the panel. Because the paint is never touched, the repair is invisible and keeps your original finish — and your resale value — intact.',
    vs:{y:'Door dings and minor creases up to four inches, with factory paint intact.',n:'Creased or oversized dents, body-shop damage, bumpers, plastic and trim.'},
    costs:[['Single Door Ding','$125'],['Tailgate Dent','$250'],['Crease Dent','$400'],['Quarter-Panel Dent','$350'],['Multi-Panel Repair','$1,800'],['Multiple Door Dings','$900']],costsTitle:'What dent work costs out of pocket',costNote:'Illustrative costs; vary by make, model and panel.',
@@ -74,16 +74,16 @@ const P={
  'rust-undercoat':{seo:'Rust & Undercoat Protection',name:'Rust & Undercoat',short:'Rust & Undercoat',cat:'Ancillary protection',img:'rust',alt:'Cars in heavy snow on a salted road',
    head:'Salt, spray and time. Sealed out.',sub:"A treated body and underbody that fight corrosion from the inside out — and cut road noise while they're at it.",
    blurb:'Inside-out corrosion repair and a sealed underbody against salt and spray.',
-   specs:[['Term','12–84 mo'],['Deductible','$0'],['Aggregate','$3,500']],card:['12–84 mo','$0 deductible'],
+   specs:[['Term','12–84 mo'],['Deductible','$0'],['Total coverage','$3,500']],card:['12–84 mo','$0 deductible'],
    optionsTitle:'Two layers of defense',options:[{n:'Rust Inhibitor',d:"A protection product guards the body's treated surfaces. If rust breaks through from the inside out, we repair those conditions free of charge.",l:['Inside-out corrosion repair','Treated body panels & seams']},{n:'Undercoat',d:'The underbody is sealed to block environmental damage and quiet the ride. Damage to covered surfaces — or to the coating itself — is repaired free of charge.',l:['Underbody environmental damage','Road-noise reduction']}],
-   optionsNote:'Bundle both: combine Rust Inhibitor and Undercoat for a $3,500 total aggregate of protection.',
+   optionsNote:'Bundle both: combine Rust Inhibitor and Undercoat for $5,000 in total coverage.',
    costs:[['Rocker-Panel Rust','$1,200'],['Frame Treatment','$1,100'],['Underbody Corrosion','$900'],['Brake-Line Corrosion','$700'],['Wheel-Well Repair','$650'],['Sound-Deadening Reapply','$500']],costsTitle:'What corrosion repair costs out of pocket',costNote:'Illustrative costs; vary by make, model and climate.',
    faq:[['Do I need to do anything to keep coverage?','Wash the exterior and underbody regularly.']],
    pair:['appearance','dent-repair','combo']},
  'appearance':{seo:'Appearance Protection',name:'Appearance Protection',short:'Appearance',cat:'Ancillary protection',img:'appearance',alt:'Car being hand-washed in a detailing bay',
    head:'Keep it looking showroom-new.',sub:'Treatments that shrug off stains, spills, UV and the elements — inside and out, for years.',
    blurb:'Interior and exterior treatments against stains, UV, sap, salt and bird etch.',
-   specs:[['Terms','36–72 mo'],['Deductible','$0'],['Aggregate','$5,000'],['Transfers','Yes']],card:['36–72 mo','$0 deductible'],
+   specs:[['Terms','36–72 mo'],['Deductible','$0'],['Total coverage','$5,000'],['Transfers','Yes']],card:['36–72 mo','$0 deductible'],
    levels:true,
    protect:[['Interior protects against',['Permanent stains & spills','UV fading & heat','Rips under six inches','Small burns & punctures']],['Exterior protects against',['Fading, oxidation & etching','Bird droppings & tree sap','Road salt & acid rain','Insect & love-bug damage']]],
    costs:[['Leather Reconditioning','$600'],['Paint Oxidation Correction','$500'],['UV Fade Repair','$450'],['Carpet / Fabric Stain','$300'],['Bird-Dropping Etch','$250'],['Odor & Spill Treatment','$200']],costsTitle:'What appearance repairs cost out of pocket',costNote:'Illustrative costs; vary by make, model and materials.',
@@ -193,18 +193,18 @@ Object.assign(P,{
    pair:['vpp','dent-repair','appearance']},
 });
 /* corrections from the product guide */
-Object.assign(P['tire-wheel'],{specs:[['Term','12–84 mo'],['Deductible','$100'],['Per repair','$2,500'],['Total','$5,000']],
+Object.assign(P['tire-wheel'],{specs:[['Term','12–84 mo'],['Deductible','$100'],['Per repair','$2,500'],['Total coverage','$5,000']],
   covered:['Tire repair & replacement','Wheel replacement','Cosmetic & curb-rash wheel repair','Curb & sidewall damage','Mounting & balancing','Potholes, rocks & debris','Glass & nails','Tire disposal & fees'],
   coveredNote:'Optional add-ons: TPMS sensors, run-flat tires, and carbon fiber, magnesium or chrome wheels.',
   extras:[['car','24/7 sign & drive roadside','Towing, jump-start, tire change, fluid delivery and lock-out, up to $200.'],['rental','Substitute transportation','$50 a day, up to 7 days, while your vehicle is down for a covered repair.'],['transfer','Fully transferable','Move remaining coverage to a private buyer ($50 fee).']]});
 P['tire-wheel'].faq=[['Which vehicles are eligible?','Vehicles up to 15 model years old.'],['Is there a tread requirement?','Yes. Tires need more than 3/32 inch of tread at the time of damage.'],['Is cosmetic wheel damage covered?','Yes. Cosmetic and curb-rash wheel repair is included.'],['Are TPMS sensors and run-flat tires covered?','They can be added as options when you buy.'],CANCEL_STD];
-Object.assign(P['rust-undercoat'],{specs:[['Term','12–120 mo'],['Deductible','$0'],['Aggregate','$5,000'],['Transfers','Yes']],card:['12–120 mo','$0 deductible'],optionsNote:'Each layer covers up to $2,500, for $5,000 combined when you choose both.'});
+Object.assign(P['rust-undercoat'],{specs:[['Term','12–120 mo'],['Deductible','$0'],['Total coverage','$5,000'],['Transfers','Yes']],card:['12–120 mo','$0 deductible'],optionsNote:'Each layer covers up to $2,500, for $5,000 combined when you choose both.'});
 P['rust-undercoat'].faq.push(['Can I cancel?','No. The product is applied to your vehicle, so it can\'t be canceled.'],['Which vehicles are eligible?','Up to 15 years old and 125,000 miles.']);
 P['windshield'].faq.push(['Can I cancel?','No. Windshield Protection can\'t be canceled, but it does transfer for a $50 fee.']);
 P['touchscreen'].faq.push(['Can I cancel?','No. Touchscreen Protection can\'t be canceled, but it does transfer for a $50 fee.']);
 P['key-remote'].faq.push(['What if I\'m far from my dealer?','Within 25 miles, your selling dealer replaces the key. Farther away, call '+PHONE+' for approval of a franchised dealer.'],CANCEL_STD);
 P['dent-repair'].faq.push(['Is hail damage covered?','No. Hail, flood, fire and other natural events are excluded.'],CANCEL_STD);
-P['appearance'].specs=[['Terms','36 / 60 / 72 mo'],['Deductible','$0'],['Aggregate','$5,000'],['Transfers','Yes']];
+P['appearance'].specs=[['Terms','36 / 60 / 72 mo'],['Deductible','$0'],['Total coverage','$5,000'],['Transfers','Yes']];
 Object.assign(P['oil-change'],{seo:'Prepaid Maintenance Plan',name:'Prepaid Maintenance',short:'Maintenance',
   sub:'Oil and filter changes, tire rotations and a multi-point inspection at your Garber service drive, prepaid. Services never expire.',
   blurb:'Oil and filter, tire rotation and multi-point inspection, prepaid.',
