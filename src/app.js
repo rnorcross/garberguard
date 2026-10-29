@@ -3,6 +3,7 @@
 const path=location.pathname.replace(/\/+$/,'')||'/';
 const isFlow=path==='/get-started';
 const app=document.getElementById('app');
+captureAttr();
 
 /* Old #links (e.g. /#tire-wheel) go to the matching page */
 const legacy=(location.hash||'').slice(1);
@@ -59,11 +60,18 @@ document.addEventListener('change',e=>{const t=e.target;
     if(t.dataset.f==='where'||t.dataset.f==='year')rerenderKeep(t.id);}
 });
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset.f&&t.type!=='checkbox'&&t.type!=='radio'){Q[t.dataset.f]=t.value;save();}});
-document.addEventListener('submit',e=>{
+let sending=false;
+document.addEventListener('submit',async e=>{
   if(e.target.id==='pickerForm'){e.preventDefault();startWith();location.href='/get-started';return;}
   if(e.target.id==='qform'){e.preventDefault();
     if(!validate(Q.step)){renderFlow(false);const f=document.querySelector('[aria-invalid="true"]')||document.querySelector('.err');f&&f.focus&&f.focus();f&&f.scrollIntoView({block:'center'});return;}
-    if(Q.step===3){Q.ref='GG-'+Math.random().toString(36).slice(2,8).toUpperCase();}
+    if(Q.step===3){
+      if(sending)return;sending=true;
+      if(!Q.ref)Q.ref='GG-'+Math.random().toString(36).slice(2,8).toUpperCase();save();
+      const b=document.getElementById('q-send');if(b){b.disabled=true;b.textContent='Sending…';}
+      const ok=await sendLead();sending=false;
+      if(!ok){errs={submit:'We couldn\'t send your request. Please try again, or call '+PHONE+'.'};renderFlow(false);const m=document.getElementById('e-submit');m&&m.scrollIntoView({block:'center'});return;}
+    }
     Q.step++;save();renderFlow();}
 });
 })();
