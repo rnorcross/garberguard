@@ -13,6 +13,7 @@
 <meta property="og:image" content="{{SITE}}/assets/lifestyle.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#05054f">
+<meta name="color-scheme" content="light only">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
@@ -33,26 +34,9 @@
   --grad-a:#4b57d1; --grad-b:#1a24c0; --err:#b3261e; --shadow:rgba(5,5,79,.10);
   --font:'Mulish',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --r:12px; --chamfer:32px;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0a0b26; --soft:#10122f; --surface:#151839; --line:#262a55; --line-strong:#3a3f74;
-  --fg:#d5d7ee; --head:#ffffff; --muted:#a6a9c9;
-  --btn:#4552dd; --btn-hover:#5663ea; --on-btn:#ffffff; --link:#a4acff; --tint:#1e2257; --badge:#232866;
-  --navy:#13156a; --on-navy:#ffffff; --on-navy-muted:rgba(255,255,255,.82); --lav:#b9bdf5; --navy-chip:rgba(255,255,255,.12);
-  --grad-a:#4b57d1; --grad-b:#1a24c0; --err:#ff8a80; --shadow:rgba(0,0,0,.4);
-  color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --bg:#0a0b26; --soft:#10122f; --surface:#151839; --line:#262a55; --line-strong:#3a3f74;
-  --fg:#d5d7ee; --head:#ffffff; --muted:#a6a9c9;
-  --btn:#4552dd; --btn-hover:#5663ea; --on-btn:#ffffff; --link:#a4acff; --tint:#1e2257; --badge:#232866;
-  --navy:#13156a; --on-navy:#ffffff; --on-navy-muted:rgba(255,255,255,.82); --lav:#b9bdf5; --navy-chip:rgba(255,255,255,.12);
-  --grad-a:#4b57d1; --grad-b:#1a24c0; --err:#ff8a80; --shadow:rgba(0,0,0,.4);
-  color-scheme:dark;
+  color-scheme:light;
 }
 .logo-d{display:none!important}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo-l{display:none!important}:root:not([data-theme="light"]) .logo-d{display:block!important}}
-:root[data-theme="dark"] .logo-l{display:none!important}:root[data-theme="dark"] .logo-d{display:block!important}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
