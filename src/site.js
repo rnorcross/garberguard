@@ -429,6 +429,25 @@ const DESC={home:'Vehicle service contracts and protection plans from Garber Aut
 const ddItem=(id,active)=>`<a class="mm-item" href="${PATHS[id]}"${id===active?' aria-current="page"':''}><span class="mm-ic">${ICON[id]}</span><span><b>${esc(P[id].name)}</b><span>${esc(MM[id])}</span></span></a>`;
 const ddPanelHTML=active=>`<div class="mm-cols">${GROUPS.map(g=>`<div class="mm-col"><div class="eyebrow mm-gh">${esc(g.name)}</div>${g.ids.map(id=>ddItem(id,active)).join('')}</div>`).join('')}</div>
 <div class="mm-foot"><span><b>Not sure what you need?</b> Tell us about your vehicle and a specialist will recommend.</span><span class="mm-links"><a href="/get-started" data-start>Start a quote →</a><a href="${PATHS.plans}">Compare all plans →</a></span></div>`;
+const ARR_SM='<svg class="mnav-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+const mobileNavHTML=()=>{let n=0;const st=()=>` style="--i:${n++}"`;
+ const tabs=GROUPS.map((g,i)=>`<button class="mnav-tab" type="button" role="tab" id="mt-${i}" aria-controls="mp-${i}" aria-selected="${i===0}" data-mtab="${i}">${esc(g.name.split(' ')[0].replace(/&$/,''))}</button>`).join('');
+ const lists=GROUPS.map((g,i)=>`<div class="mnav-list" role="tabpanel" id="mp-${i}" aria-labelledby="mt-${i}"${i?' hidden':''}>${g.ids.map(id=>`<a class="mnav-item" href="${PATHS[id]}"><span class="mnav-ic">${ICON[id]}</span><span class="mnav-tx"><b>${esc(P[id].name)}</b><span>${esc(MM[id])}</span></span>${ARR_SM}</a>`).join('')}</div>`).join('');
+ return `<div class="mnav" id="mnav" hidden>
+ <div class="mnav-scrim" data-mclose></div>
+ <div class="mnav-panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+  <div class="mnav-top"><a href="/" aria-label="Garber Guard home"><img src="/assets/logo-white.png" alt="Garber Guard" style="height:38px;display:block"></a><button class="mnav-x" type="button" data-mclose aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mnav-body">
+   <nav class="mnav-quick mnav-a"${st()} aria-label="More"><a href="${PATHS['how-it-works']}">How it works</a><a href="${PATHS.claims}">Claims</a><a href="${PATHS.faq}">FAQ</a></nav>
+   <div class="mnav-a"${st()}><div class="mnav-k">Protection plans</div><div class="mnav-tabs" role="tablist" aria-label="Plan groups">${tabs}</div></div>
+   <div class="mnav-a"${st()}>${lists}<a class="mnav-all" href="${PATHS.plans}">Compare all ${ALL.length} plans ${ARR_SM}</a></div>
+  </div>
+  <div class="mnav-foot mnav-a"${st()}>
+   <a class="btn white mnav-cta" href="/get-started" data-start>Start my quote ${ARROW}</a>
+   <a class="mnav-call" href="tel:8778847056"><span class="mnav-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Claims &amp; 24/7 roadside</small><b>${PHONE}</b></span></a>
+  </div>
+ </div>
+</div>`;};
 const footPlansHTML=()=>GROUPS.map(g=>`<nav aria-label="${a(g.name)}"><div class="eyebrow">${esc(g.name)}</div>${g.ids.map(id=>`<a href="${PATHS[id]}">${esc(P[id].name)}</a>`).join('')}</nav>`).join('\n      ');
 function vNotFound(){return `<section class="page-head navy chamfer on-navy"><div class="in"><h1><span class="eyebrow h1-eyebrow">Page not found</span>We couldn't find that page.</h1><p>The link may be old or mistyped. Try one of these instead.</p></div></section><section class="band"><div class="in" style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn" href="/">Go to the homepage</a><a class="btn ghost" href="${PATHS.plans}">See protection plans</a></div></section>`;}
 

@@ -11,7 +11,26 @@ if(legacy&&PATHS[legacy]&&PATHS[legacy]!==path){location.replace(PATHS[legacy]);
 
 /* ---------- mobile menu ---------- */
 const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
-if(menuBtn)menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(o));});
+const mnav=document.getElementById('mnav');
+if(menuBtn&&mnav){
+  const panel=mnav.querySelector('.mnav-panel');let closeT=null;
+  const here=location.pathname.replace(/\/+$/,'')||'/';
+  mnav.querySelectorAll('a[href]').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page');});
+  const tabsEls=[...mnav.querySelectorAll('[data-mtab]')];
+  const showTab=i=>{tabsEls.forEach((t,j)=>{t.setAttribute('aria-selected',String(i===j));t.tabIndex=i===j?0:-1;document.getElementById('mp-'+j).hidden=i!==j;});};
+  const cur=mnav.querySelector('.mnav-list a[aria-current="page"]');showTab(cur?+cur.closest('.mnav-list').id.slice(3):0);
+  tabsEls.forEach((t,i)=>{t.addEventListener('click',()=>showTab(i));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=(i+(e.key==='ArrowRight'?1:-1)+tabsEls.length)%tabsEls.length;showTab(n);tabsEls[n].focus();}});});
+  const open=()=>{clearTimeout(closeT);mnav.hidden=false;void mnav.offsetWidth;mnav.classList.add('open');document.body.classList.add('mnav-lock');menuBtn.setAttribute('aria-expanded','true');setTimeout(()=>panel.focus({preventScroll:true}),60);};
+  const close=(refocus=true)=>{if(mnav.hidden)return;mnav.classList.remove('open');document.body.classList.remove('mnav-lock');menuBtn.setAttribute('aria-expanded','false');closeT=setTimeout(()=>{mnav.hidden=true;},430);if(refocus)menuBtn.focus({preventScroll:true});};
+  menuBtn.addEventListener('click',open);
+  mnav.addEventListener('click',e=>{if(e.target.closest('[data-mclose]'))close();else if(e.target.closest('a[href]'))close(false);});
+  document.addEventListener('keydown',e=>{if(mnav.hidden)return;if(e.key==='Escape'){close();return;}
+    if(e.key==='Tab'){const f=[...panel.querySelectorAll('a[href],button:not([disabled])')].filter(el=>el.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&(document.activeElement===first||document.activeElement===panel)){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  matchMedia('(min-width:961px)').addEventListener('change',m=>{if(m.matches)close(false);});
+  let sx=null;panel.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+  panel.addEventListener('touchend',e=>{if(sx!==null&&e.changedTouches[0].clientX-sx>70)close();sx=null;},{passive:true});
+}
 
 /* ---------- plans dropdown ---------- */
 const ddBtn=document.getElementById('plansBtn'),ddPanel=document.getElementById('plansMenu'),dd=document.getElementById('plansDD');
