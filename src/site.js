@@ -431,16 +431,26 @@ const ddPanelHTML=active=>`<div class="mm-cols">${GROUPS.map(g=>`<div class="mm-
 <div class="mm-foot"><span><b>Not sure what you need?</b> Tell us about your vehicle and a specialist will recommend.</span><span class="mm-links"><a href="/get-started" data-start>Start a quote →</a><a href="${PATHS.plans}">Compare all plans →</a></span></div>`;
 const ARR_SM='<svg class="mnav-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
 const mobileNavHTML=()=>{let n=0;const st=()=>` style="--i:${n++}"`;
- const tabs=GROUPS.map((g,i)=>`<button class="mnav-tab" type="button" role="tab" id="mt-${i}" aria-controls="mp-${i}" aria-selected="${i===0}" data-mtab="${i}">${esc(g.name.split(' ')[0].replace(/&$/,''))}</button>`).join('');
- const lists=GROUPS.map((g,i)=>`<div class="mnav-list" role="tabpanel" id="mp-${i}" aria-labelledby="mt-${i}"${i?' hidden':''}>${g.ids.map(id=>`<a class="mnav-item" href="${PATHS[id]}"><span class="mnav-ic">${ICON[id]}</span><span class="mnav-tx"><b>${esc(P[id].name)}</b><span>${esc(MM[id])}</span></span>${ARR_SM}</a>`).join('')}</div>`).join('');
+ const BACK='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+ const groups=GROUPS.map(g=>`<div class="mnav-grp"><div class="mnav-k">${esc(g.name)}</div>${g.ids.map(id=>`<a class="mnav-item" href="${PATHS[id]}"><span class="mnav-ic">${ICON[id]}</span><span class="mnav-tx"><b>${esc(P[id].name)}</b><span>${esc(MM[id])}</span></span>${ARR_SM}</a>`).join('')}</div>`).join('');
  return `<div class="mnav" id="mnav" hidden>
  <div class="mnav-scrim" data-mclose></div>
  <div class="mnav-panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
   <div class="mnav-top"><a href="/" aria-label="Garber Guard home"><img src="/assets/logo-white.png" alt="Garber Guard" style="height:38px;display:block"></a><button class="mnav-x" type="button" data-mclose aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <div class="mnav-body">
-   <nav class="mnav-quick mnav-a"${st()} aria-label="More"><a href="${PATHS['how-it-works']}">How it works</a><a href="${PATHS.claims}">Claims</a><a href="${PATHS.faq}">FAQ</a></nav>
-   <div class="mnav-a"${st()}><div class="mnav-k">Protection plans</div><div class="mnav-tabs" role="tablist" aria-label="Plan groups">${tabs}</div></div>
-   <div class="mnav-a"${st()}>${lists}<a class="mnav-all" href="${PATHS.plans}">Compare all ${ALL.length} plans ${ARR_SM}</a></div>
+  <div class="mnav-views">
+   <div class="mnav-view" id="mv-main">
+    <nav class="mnav-links" aria-label="Main">
+     <button class="mnav-row mnav-a"${st()} type="button" data-mgo="plans" aria-controls="mv-plans" aria-expanded="false">Protection plans${ARR_SM}</button>
+     <a class="mnav-row mnav-a"${st()} href="${PATHS['how-it-works']}">How it works${ARR_SM}</a>
+     <a class="mnav-row mnav-a"${st()} href="${PATHS.claims}">Claims &amp; roadside${ARR_SM}</a>
+     <a class="mnav-row mnav-a"${st()} href="${PATHS.faq}">FAQ${ARR_SM}</a>
+    </nav>
+   </div>
+   <div class="mnav-view" id="mv-plans" aria-label="Protection plans" inert>
+    <div class="mnav-sub-h"><button class="mnav-back" type="button" data-mgo="main">${BACK}Back</button><span>Protection plans</span></div>
+    ${groups}
+    <a class="mnav-all" href="${PATHS.plans}">Compare all ${ALL.length} plans ${ARR_SM}</a>
+   </div>
   </div>
   <div class="mnav-foot mnav-a"${st()}>
    <a class="btn white mnav-cta" href="/get-started" data-start>Start my quote ${ARROW}</a>
