@@ -80,7 +80,7 @@ const ogFor = pg => {
   if (!p || !p.img || p.five) return OG_DEFAULT;
   const src = G.IMG[p.img];
   if (!src) return OG_DEFAULT;
-  if (src.startsWith('/assets/')) return { src: src.replace('/assets/', '/assets/og/'), alt: p.alt || p.seo };
+  if (src.startsWith('/assets/')) return { src: src.replace('/assets/', '/assets/og/').replace(/\.webp$/, '.jpg'), alt: p.alt || p.seo };
   return { src: src.replace(/\?.*$/, '') + '?fm=jpg&fit=crop&crop=entropy&w=1200&h=630&q=80', alt: p.alt || p.seo };
 };
 // Share images must load from a live host: Vercel's production domain (garberguard.vercel.app now, garberguard.com once

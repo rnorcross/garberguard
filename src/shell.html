@@ -30,9 +30,8 @@ if(navigator.globalPrivacyControl){window.dataLayer=window.dataLayer||[];(functi
 <title>{{TITLE}}</title>
 
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap">
+<link rel="preload" href="/assets/fonts/mulish-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Mulish';font-style:normal;font-display:swap;font-weight:200 1000;src:url(/assets/fonts/mulish-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
 <style>
 /* Layout: full-width colour bands, 1200px inner column; navy panels with a chamfered corner echo the shield mark. */
 :root{
@@ -88,7 +87,7 @@ p{margin:0}
 .util a{color:#ffffff;font-weight:700;text-decoration:none}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
 header.site .in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
-.brand img{height:50px;display:block}
+.brand img{height:50px;width:auto;display:block}
 .nav{display:flex;gap:28px;align-items:center}
 .nav>a{color:var(--head);font-weight:700;font-size:15px;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
 .nav>a:hover,.nav>a[aria-current="page"]{border-bottom-color:var(--link)}
@@ -325,7 +324,7 @@ footer.site .fc b{color:#ffffff;font-weight:800}
 .og-h{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .fit{display:table;margin:4px 0 2px;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--link);background:var(--badge);padding:2px 8px;border-radius:999px;vertical-align:2px}
 .oq .nt{display:block;font-size:12.5px;font-weight:700;color:var(--head);margin-top:4px}
-.photo{width:100%;max-width:520px;aspect-ratio:1/1;object-fit:cover;border-radius:20px}
+.photo{width:100%;max-width:520px;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:20px}
 
 /* faq */
 .faq{max-width:880px;margin:0 auto}
@@ -537,7 +536,7 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
 <div class="util" id="util"><div class="in"><span>Vehicle protection from Garber Automotive Group — family-owned since 1907</span><span class="hide-sm" style="display:flex;gap:24px"><a href="/claims">File a claim</a><a href="tel:8778847056">(877) 884-7056</a></span></div></div>
 <header class="site" id="siteHeader">
   <div class="in" style="position:relative">
-    <a class="brand" href="/" aria-label="Garber Guard home"><img class="logo-l" src="/assets/logo-color.png" alt="Garber Guard"><img class="logo-d" src="/assets/logo-white.png" alt="Garber Guard"></a>
+    <a class="brand" href="/" aria-label="Garber Guard home"><img class="logo-l" src="/assets/logo-color.png" alt="Garber Guard" width="420" height="110"><img class="logo-d" src="/assets/logo-white.png" alt="Garber Guard" width="420" height="110"></a>
     <nav class="nav" id="nav" aria-label="Main">
       <div class="dd" id="plansDD">
         <button class="dd-btn" id="plansBtn" type="button" aria-expanded="false" aria-controls="plansMenu" data-nav="plans">Protection plans<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -570,7 +569,7 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
   <div class="in">
     <div class="cols">
       <div style="flex:1 1 260px;min-width:0">
-        <img src="/assets/logo-white.png" alt="Garber Guard" style="height:46px;display:block">
+        <img src="/assets/logo-white.png" alt="Garber Guard" width="420" height="110" style="height:46px;width:auto;display:block">
         <p style="margin-top:14px;max-width:280px;line-height:1.6">The vehicle protection division of Garber Automotive Group.</p>
       </div>
       {{FOOTPLANS}}
@@ -582,7 +581,7 @@ legend{font-size:14px;font-weight:800;color:var(--head);margin-bottom:12px;paddi
   </div>
 </footer>
 <!--/chrome-->
-<script src="/js/site.js"></script>
-<script src="/js/app.js"></script>
+<script src="/js/site.js" defer></script>
+<script src="/js/app.js" defer></script>
 </body>
 </html>
