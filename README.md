@@ -85,8 +85,7 @@ Swap `garberguard.com` for the Vercel URL until the domain is connected.
 | Florida | Garber Automall GM — Green Cove Springs | `garber-automall-gm` | `https://garberguard.com/?dealer=garber-automall-gm&utm_source=garber-automall-gm&utm_medium=dealer-website&utm_campaign=garber-guard` |
 | Florida | Garber Buick GMC — Fort Pierce | `garber-buick-gmc-fort-pierce` | `https://garberguard.com/?dealer=garber-buick-gmc-fort-pierce&utm_source=garber-buick-gmc-fort-pierce&utm_medium=dealer-website&utm_campaign=garber-guard` |
 | Florida | Nissan of Bradenton | `nissan-of-bradenton` | `https://garberguard.com/?dealer=nissan-of-bradenton&utm_source=nissan-of-bradenton&utm_medium=dealer-website&utm_campaign=garber-guard` |
-| South Carolina | Hilton Head Buick GMC — Bluffton | `hilton-head-buick-gmc` | `https://garberguard.com/?dealer=hilton-head-buick-gmc&utm_source=hilton-head-buick-gmc&utm_medium=dealer-website&utm_campaign=garber-guard` |
-| South Carolina | Hilton Head Cadillac — Bluffton | `hilton-head-cadillac` | `https://garberguard.com/?dealer=hilton-head-cadillac&utm_source=hilton-head-cadillac&utm_medium=dealer-website&utm_campaign=garber-guard` |
+| South Carolina | Hilton Head Buick GMC Cadillac — Bluffton | `hilton-head-buick-gmc-cadillac` | `https://garberguard.com/?dealer=hilton-head-buick-gmc-cadillac&utm_source=hilton-head-buick-gmc-cadillac&utm_medium=dealer-website&utm_campaign=garber-guard` |
 
 ## Before launch
 - Set `GARBER_FUNCTIONS_TOKEN` in Vercel (see above) and send a test lead from each dealer link.
