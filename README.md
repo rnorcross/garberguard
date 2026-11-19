@@ -46,6 +46,9 @@ The store the visitor picked is always sent separately as `customer_selected_sto
 
 Store names and codes live in `STORES` in `src/site.js`. Keep codes unchanged once links are live; add new stores there.
 
+### Share images (Open Graph)
+Every page has a 1200×630 share image. Plan pages with a photo use that photo (local photos from `assets/og/`, Unsplash photos requested at 1200×630); every other page uses `assets/og/default.jpg`. To refresh a local crop after changing a photo, re-crop it to 1200×630 into `assets/og/` with the same file name. Image links use Vercel's production domain automatically (override with `OG_SITE_URL`).
+
 ### Analytics (GTM)
 Every page loads Google Tag Manager container `GTM-T8TG4NS6` (in `src/shell.html`). A sent quote request pushes this event to the data layer. It carries no names, phone numbers or emails:
 

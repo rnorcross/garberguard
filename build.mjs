@@ -11,7 +11,7 @@ const shell = fs.readFileSync('src/shell.html', 'utf8');
 const siteCode = fs.readFileSync('src/site.js', 'utf8');
 
 const G = vm.runInContext(
-  siteCode + '\n;({P,ORDER,ALL,PATHS,FAQ,PHONE,TITLES,DESC,vHome,vPlans,vHow,vClaims,vFaq,vProduct,vNotFound,vStep1,vPrivacy,vTerms,ddPanelHTML,footPlansHTML,mobileNavHTML,GROUPS})',
+  siteCode + '\n;({P,ORDER,ALL,PATHS,FAQ,PHONE,TITLES,DESC,vHome,vPlans,vHow,vClaims,vFaq,vProduct,vNotFound,vStep1,vPrivacy,vTerms,ddPanelHTML,footPlansHTML,mobileNavHTML,GROUPS,IMG})',
   vm.createContext({ console })
 );
 
@@ -72,6 +72,22 @@ pages.push({ id: 'terms-of-use', main: G.vTerms(), nav: '', ld: [crumbs([['Home'
 pages.push({ id: 'get-started', main: G.vStep1(), flow: true, noindex: true, ld: [] });
 pages.push({ id: '404', file: '404.html', main: G.vNotFound(), noindex: true, ld: [] });
 
+// Share (Open Graph) images, 1200x630. Pages with a photo use it; every other page uses the default.
+// Local photos use the pre-cropped copy in assets/og/; Unsplash photos are requested at 1200x630.
+const OG_DEFAULT = { src: '/assets/og/default.jpg', alt: 'Garber Guard vehicle protection from Garber Automotive Group' };
+const ogFor = pg => {
+  const p = G.P[pg.id];
+  if (!p || !p.img || p.five) return OG_DEFAULT;
+  const src = G.IMG[p.img];
+  if (!src) return OG_DEFAULT;
+  if (src.startsWith('/assets/')) return { src: src.replace('/assets/', '/assets/og/'), alt: p.alt || p.seo };
+  return { src: src.replace(/\?.*$/, '') + '?fm=jpg&fit=crop&crop=entropy&w=1200&h=630&q=80', alt: p.alt || p.seo };
+};
+// Share images must load from a live host: Vercel's production domain (garberguard.vercel.app now, garberguard.com once
+// connected), or OG_SITE_URL if set. Local builds fall back to SITE.
+const OG_HOST = (process.env.OG_SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? 'https://' + process.env.VERCEL_PROJECT_PRODUCTION_URL : SITE)).replace(/\/+$/, '');
+const ogUrl = s => (s.startsWith('http') ? s : OG_HOST + s);
+
 function renderPage(pg) {
   const url = G.PATHS[pg.id] || '/';
   const title = pg.title || G.TITLES[pg.id];
@@ -82,6 +98,8 @@ function renderPage(pg) {
     .replaceAll('{{CANONICAL}}', esc(abs(url)))
     .replaceAll('{{SITE}}', SITE)
     .replace('{{ROBOTS}}', pg.noindex ? '<meta name="robots" content="noindex, follow">\n' : '')
+    .replaceAll('{{OGIMAGE}}', esc(ogUrl(ogFor(pg).src)))
+    .replace('{{OGALT}}', esc(ogFor(pg).alt))
     .replace('{{JSONLD}}', pg.ld.map(ld).join('\n'))
     .replace('{{DDPANEL}}', () => G.ddPanelHTML(pg.dd || ''))
     .replace('{{FOOTPLANS}}', () => G.footPlansHTML())
