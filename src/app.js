@@ -91,6 +91,8 @@ document.addEventListener('submit',async e=>{
       const b=document.getElementById('q-send');if(b){b.disabled=true;b.textContent='Sending…';}
       const ok=await sendLead();sending=false;
       if(!ok){errs={submit:'We couldn\'t send your request. Please try again, or call '+PHONE+'.'};renderFlow(false);const m=document.getElementById('e-submit');m&&m.scrollIntoView({block:'center'});return;}
+      /* GTM: one event per sent quote request. No names, phone numbers or emails go to the data layer. */
+      try{const at=readAttr(),code=routedDealer();(window.dataLayer=window.dataLayer||[]).push({event:'gg_quote_submitted',quote_reference:Q.ref,dealer_code:code||'none',dealer_name:code?DEALER[code]:'',dealer_assigned_by:at?'dealer_link':(code?'customer_selected':'none'),products:Q.products.join(','),product_count:Q.products.length,vehicle_make:Q.make,vehicle_year:Q.year,vehicle_use:Q.use,contact_method:Q.method});}catch(e){}
     }
     Q.step++;save();renderFlow();}
 });

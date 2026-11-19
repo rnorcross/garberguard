@@ -46,6 +46,13 @@ The store the visitor picked is always sent separately as `customer_selected_sto
 
 Store names and codes live in `STORES` in `src/site.js`. Keep codes unchanged once links are live; add new stores there.
 
+### Analytics (GTM)
+Every page loads Google Tag Manager container `GTM-T8TG4NS6` (in `src/shell.html`). A sent quote request pushes this event to the data layer. It carries no names, phone numbers or emails:
+
+`{event: 'gg_quote_submitted', quote_reference, dealer_code ('none' if none), dealer_name, dealer_assigned_by, products, product_count, vehicle_make, vehicle_year, vehicle_use, contact_method}`
+
+In GTM, use a Custom Event trigger on `gg_quote_submitted` and Data Layer Variables for the fields, then send a GA4 event (e.g. `generate_lead`) and mark it as a key event.
+
 ### Dealer website links
 Swap `garberguard.com` for the Vercel URL until the domain is connected.
 
