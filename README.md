@@ -92,7 +92,6 @@ Swap `garberguard.com` for the Vercel URL until the domain is connected.
 
 ## Before launch
 - Set `GARBER_FUNCTIONS_TOKEN` in Vercel (see above) and send a test lead from each dealer link.
-- Fill the callback response time on the confirmation screen.
 - Privacy Policy (`/privacy-policy`, `PRIVACY` in `src/site.js`) and Terms of Use (`/terms-of-use`, `TERMS`): fill the Garber Management Group mailing address and remaining highlighted [brackets], then legal sign-off. Both are dated December 1, 2026 (`PRIVACY_EFFECTIVE`, `TERMS_EFFECTIVE`).
 - Global Privacy Control is honored: a GPC browser signal sets Google consent mode ad storage/personalization to denied before GTM loads (`src/shell.html`).
 - Excess Wear & Tear shows "Not yet available in New York"; remove the `notice` on `ewt` in `src/site.js` once NY is approved.
