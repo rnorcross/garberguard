@@ -11,7 +11,7 @@ const shell = fs.readFileSync('src/shell.html', 'utf8');
 const siteCode = fs.readFileSync('src/site.js', 'utf8');
 
 const G = vm.runInContext(
-  siteCode + '\n;({P,ORDER,ALL,PATHS,FAQ,PHONE,TITLES,DESC,vHome,vPlans,vHow,vClaims,vFaq,vProduct,vNotFound,vStep1,ddPanelHTML,footPlansHTML,mobileNavHTML,GROUPS})',
+  siteCode + '\n;({P,ORDER,ALL,PATHS,FAQ,PHONE,TITLES,DESC,vHome,vPlans,vHow,vClaims,vFaq,vProduct,vNotFound,vStep1,vPrivacy,ddPanelHTML,footPlansHTML,mobileNavHTML,GROUPS})',
   vm.createContext({ console })
 );
 
@@ -67,6 +67,7 @@ for (const id of G.ALL) {
 pages.push({ id: 'how-it-works', main: G.vHow(), nav: 'how-it-works', ld: [crumbs([['Home', '/'], ['How it works', G.PATHS['how-it-works']]])] });
 pages.push({ id: 'claims', main: G.vClaims(), nav: 'claims', ld: [crumbs([['Home', '/'], ['Claims', G.PATHS.claims]])] });
 pages.push({ id: 'faq', main: G.vFaq(), nav: 'faq', ld: [crumbs([['Home', '/'], ['FAQ', G.PATHS.faq]]), faqLd(G.FAQ)].filter(Boolean) });
+pages.push({ id: 'privacy-policy', main: G.vPrivacy(), nav: '', ld: [crumbs([['Home', '/'], ['Privacy Policy', G.PATHS['privacy-policy']]])] });
 pages.push({ id: 'get-started', main: G.vStep1(), flow: true, noindex: true, ld: [] });
 pages.push({ id: '404', file: '404.html', main: G.vNotFound(), noindex: true, ld: [] });
 

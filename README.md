@@ -24,7 +24,7 @@ Canonical URLs, the sitemap and structured data use `https://garberguard.com`; o
 | Everyday | `/protection-plans/tire-wheel-protection`, `/windshield-protection`, `/key-replacement`, `/touchscreen-protection`, `/paintless-dent-repair`, `/5-in-1-protection-bundle` |
 | Appearance & rust | `/protection-plans/appearance-protection`, `/rust-undercoat-protection` |
 | Lease & maintenance | `/protection-plans/vehicle-protection-plus-lease`, `/lease-excess-wear-and-tear`, `/prepaid-maintenance` |
-| Info | `/how-it-works`, `/claims`, `/faq` |
+| Info | `/how-it-works`, `/claims`, `/faq`, `/privacy-policy` |
 | Quote flow | `/get-started` (noindex) |
 
 Product content follows the Garber Guard Product Suite Overview (July 2026). Groups are set in `GROUPS` in `src/site.js`.
@@ -89,6 +89,8 @@ Swap `garberguard.com` for the Vercel URL until the domain is connected.
 
 ## Before launch
 - Set `GARBER_FUNCTIONS_TOKEN` in Vercel (see above) and send a test lead from each dealer link.
-- Fill placeholders: consent language (legal review), callback response time (confirmation screen).
+- Fill the callback response time on the confirmation screen.
+- Privacy Policy (`/privacy-policy`) is a template for legal review: replace every highlighted [bracket] in `PRIVACY` in `src/site.js`.
+- The consent text acknowledges a Terms of Use, which doesn't exist yet: add the page and link it in `CONSENT_HTML` and the footer.
 - Excess Wear & Tear shows "Not yet available in New York"; remove the `notice` on `ewt` in `src/site.js` once NY is approved.
 - Connect GarberGuard.com in Vercel, then submit `https://garberguard.com/sitemap.xml` in Google Search Console.
