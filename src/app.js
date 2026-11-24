@@ -49,6 +49,7 @@ if(dd){
 
 /* ---------- get-started flow ---------- */
 function renderFlow(toTop){
+  {const at=readAttr();if(at&&!Q.store){Q.store=at.code;save();}} /* pre-select the linking store */
   app.innerHTML=[null,vStep1,vStep2,vStep3,vStep4][Q.step]();
   if(toTop!==false)window.scrollTo(0,0);
   if(Q.step===4){const h=document.getElementById('doneH');h&&h.focus({preventScroll:true});}
