@@ -2,7 +2,7 @@
 // garber-functions lead endpoint, which routes it to the store's email.
 //
 // Vercel environment variables (Project → Settings → Environment Variables):
-//   GARBER_FUNCTIONS_TOKEN  required — bearer token for the garber-functions endpoint (never commit it)
+//   GARBER_FUNCTIONS_TOKEN  optional — bearer token, only if the garber-functions trigger requires sign-in (never commit it)
 //   GARBER_LEAD_URL         optional — defaults to https://garber-functions.vercel.app/f/garber-guard
 
 const DEFAULT_URL = 'https://garber-functions.vercel.app/f/garber-guard';
@@ -24,11 +24,7 @@ module.exports = async (req, res) => {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ ok: false, error: 'method_not_allowed' });
   }
-  const token = process.env.GARBER_FUNCTIONS_TOKEN;
-  if (!token) {
-    console.error('GARBER_FUNCTIONS_TOKEN is not set');
-    return res.status(500).json({ ok: false, error: 'not_configured' });
-  }
+  const token = process.env.GARBER_FUNCTIONS_TOKEN || '';
 
   let lead;
   try {
@@ -48,7 +44,9 @@ module.exports = async (req, res) => {
   try {
     const r = await fetch(process.env.GARBER_LEAD_URL || DEFAULT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      headers: token
+        ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
+        : { 'Content-Type': 'application/json' },
       body: JSON.stringify(lead),
       signal: AbortSignal.timeout(12000),
     });

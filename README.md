@@ -31,10 +31,10 @@ Product content follows the Garber Guard Product Suite Overview (July 2026). Gro
 Earlier URLs (`/tire-wheel`, `/plans`, `/protection-plans/prepaid-oil-change-program`, …) permanently redirect. `*.vercel.app` hosts send `X-Robots-Tag: noindex` so only the real domain gets indexed.
 
 ## Leads and dealer attribution
-Each quote request is POSTed as JSON to `/api/lead`, which relays it to `https://garber-functions.vercel.app/f/garber-guard` with `Authorization: Bearer <token>`. That endpoint routes the lead to the store's email. If the send fails, the visitor sees an error and can retry with the same reference number.
+Each quote request is POSTed as JSON to `/api/lead`, which relays it to `https://garber-functions.vercel.app/f/garber-guard` (with `Authorization: Bearer <token>` when a token is set). That endpoint routes the lead to the store's email. If the send fails, the visitor sees an error and can retry with the same reference number.
 
 Set these in Vercel (Project → Settings → Environment Variables), then redeploy:
-- `GARBER_FUNCTIONS_TOKEN` (required) — the endpoint token. Never commit it or put it in `src/`.
+- `GARBER_FUNCTIONS_TOKEN` (optional) — bearer token, only needed if the garber-functions trigger requires sign-in. When set, it's sent as `Authorization: Bearer <token>`. Never commit it or put it in `src/`.
 - `GARBER_LEAD_URL` (optional) — overrides the endpoint URL.
 
 **Which store gets the lead** (`dealer` in the JSON):
@@ -91,7 +91,7 @@ Swap `garberguard.com` for the Vercel URL until the domain is connected.
 | South Carolina | Hilton Head Buick GMC Cadillac — Bluffton | `hilton-head-buick-gmc-cadillac` | `https://garberguard.com/?dealer=hilton-head-buick-gmc-cadillac&utm_source=hilton-head-buick-gmc-cadillac&utm_medium=dealer-website&utm_campaign=garber-guard` |
 
 ## Before launch
-- Set `GARBER_FUNCTIONS_TOKEN` in Vercel (see above) and send a test lead from each dealer link.
+- Send a test lead from each dealer link (set `GARBER_FUNCTIONS_TOKEN` in Vercel first only if the trigger requires sign-in).
 - Privacy Policy (`/privacy-policy`, `PRIVACY` in `src/site.js`) and Terms of Use (`/terms-of-use`, `TERMS`): fill the Garber Management Group mailing address and remaining highlighted [brackets], then legal sign-off. Both are dated December 1, 2026 (`PRIVACY_EFFECTIVE`, `TERMS_EFFECTIVE`).
 - Global Privacy Control is honored: a GPC browser signal sets Google consent mode ad storage/personalization to denied before GTM loads (`src/shell.html`).
 - Excess Wear & Tear shows "Not yet available in New York"; remove the `notice` on `ewt` in `src/site.js` once NY is approved.
