@@ -399,7 +399,7 @@ function vStep3(){return flowShell(`<form class="qcard" id="qform" novalidate><d
  <div class="qfoot"><button class="link-btn" type="button" data-back>← Back</button><button class="btn" type="submit" id="q-send">Request my quote</button></div></form>`,
  `<aside class="qaside">${summary()}<div class="sum" style="display:flex;gap:12px;font-size:14px;color:var(--muted)">${ICON.shield.replace('<svg','<svg width="22" height="22" style="flex:none;color:var(--link)"')}<span>Your information is used only to prepare your Garber Guard quote.</span></div></aside>`);}
 function vStep4(){const pr=names(Q.products);return flowShell(`<section class="done-card navy chamfer on-navy"><div class="big-shield"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
- <h1 tabindex="-1" id="doneH">You're all set, ${esc(Q.first)}.</h1><p class="sub">We will contact you very shortly at <b style="color:#ffffff">${esc(Q.phone)}</b> with your personalized quote.</p>
+ <h1 tabindex="-1" id="doneH">You're all set, ${esc(Q.first)}.</h1><p class="sub">We will contact you very shortly at <b style="color:#ffffff">${esc(fmtPhone(Q.phone))}</b> with your personalized quote.</p>
  <div class="eyebrow" style="margin-bottom:18px">What happens next</div><ol class="ol"><li><div class="shield">1</div><div><b>Your specialist reaches out</b><br><span>They'll confirm your vehicle and talk through each protection.</span></div></li><li><div class="shield">2</div><div><b>You get an exact quote</b><br><span>Terms and coverage built around how you drive. No obligation.</span></div></li><li><div class="shield">3</div><div><b>You're protected</b><br><span>Sign your Agreement and your coverage begins.</span></div></li></ol></section>`,
  `<aside class="qaside"><div class="sum"><div class="eyebrow">Request summary</div><div class="rows"><div><span>Vehicle</span><b>${esc(Q.year)} ${esc(Q.make)} ${esc(Q.model)}</b></div><div><span>Mileage</span><b>${esc(Q.miles)} mi</b></div><div><span>Use</span><b>${esc({personal:'Personal',business:'Business',lease:'Lease'}[Q.use]||'')}</b></div><div><span>Protections</span><b>${pr.map(esc).join('<br>')}</b></div>${routedDealer()?`<div><span>Store</span><b>${esc(DEALER[routedDealer()])}</b></div>`:''}<div><span>Contact</span><b>${esc(Q.method)} · ${esc(Q.time)}</b></div><div><span>Reference</span><b>${esc(Q.ref)}</b></div></div></div>
  <a class="btn ghost" href="/" data-reset>Back to Garber Guard</a></aside>`);}
@@ -451,6 +451,8 @@ const TERMS=[
 function vTerms(){return `<section class="page-head navy chamfer on-navy"><div class="in"><h1><span class="eyebrow h1-eyebrow">Legal</span>Terms of Use</h1><p>${todoMark('Effective '+TERMS_EFFECTIVE)}</p></div></section>
 <section class="band"><div class="in"><article class="policy">${TERMS.map(([h,b])=>`<h2>${esc(h)}</h2>${todoMark(b)}`).join('')}</article></div></section>`;}
 
+/* (810) 358-5038 from any entry like 18103585038, 810.358.5038 or +1 810 358 5038; anything else is shown as typed */
+const fmtPhone=v=>{const d=String(v).replace(/\D/g,'').replace(/^1(?=\d{10}$)/,'');return d.length===10?`(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`:String(v);};
 /* ---------- lead submission ---------- */
 /* Lead goes to the dealer whose link the visitor arrived from; otherwise the store they picked in step 1; otherwise none. */
 const routedDealer=()=>{const at=readAttr();return at?at.code:(DEALER[Q.store]?Q.store:'');};
