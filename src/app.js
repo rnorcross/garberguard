@@ -3,7 +3,8 @@
 const path=location.pathname.replace(/\/+$/,'')||'/';
 const isFlow=path==='/get-started';
 const app=document.getElementById('app');
-captureAttr();
+/* Landing on a dealer link: save it, and make it the selected store (replacing any store left from an earlier visit). */
+{const landed=captureAttr();if(landed&&Q.store!==landed){Q.store=landed;save();}}
 
 /* Old #links (e.g. /#tire-wheel) go to the matching page */
 const legacy=(location.hash||'').slice(1);

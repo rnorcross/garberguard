@@ -251,9 +251,9 @@ const CONSENT_HTML=()=>esc(CONSENT_TEXT).replace(/Privacy Policy/g,'<a href="/pr
 /* ---------- dealer attribution: ?dealer=CODE is kept in a first-party cookie for 30 days (latest valid code wins) ---------- */
 const ATTR_COOKIE='gg_dealer',ATTR_DAYS=30;
 const readAttr=()=>{try{const m=document.cookie.match(/(?:^|;\s*)gg_dealer=([^;]*)/);const v=m&&JSON.parse(decodeURIComponent(m[1]));return v&&DEALER[v.code]?v:null;}catch(e){return null;}};
-function captureAttr(){try{const q=new URLSearchParams(location.search);const code=(q.get('dealer')||'').trim().toLowerCase();if(!DEALER[code])return;
+function captureAttr(){try{const q=new URLSearchParams(location.search);const code=(q.get('dealer')||'').trim().toLowerCase();if(!DEALER[code])return '';
  const v={code,at:new Date().toISOString(),landing:location.pathname,referrer:document.referrer||'',utm_source:q.get('utm_source')||'',utm_medium:q.get('utm_medium')||'',utm_campaign:q.get('utm_campaign')||''};
- document.cookie=`${ATTR_COOKIE}=${encodeURIComponent(JSON.stringify(v))}; Max-Age=${ATTR_DAYS*86400}; Path=/; SameSite=Lax${location.protocol==='https:'?'; Secure':''}`;}catch(e){}}
+ document.cookie=`${ATTR_COOKIE}=${encodeURIComponent(JSON.stringify(v))}; Max-Age=${ATTR_DAYS*86400}; Path=/; SameSite=Lax${location.protocol==='https:'?'; Secure':''}`;return code;}catch(e){return '';}}
 const MAKES=['Acura','Audi','BMW','Buick','Cadillac','Chevrolet','Chrysler','Dodge','Ford','GMC','Honda','Hyundai','Jeep','Kia','Lexus','Mazda','Mercedes-Benz','Nissan','Porsche','RAM','Subaru','Tesla','Toyota','Volkswagen','Volvo','Other'];
 
 const MM={'tire-wheel':'Potholes, curbs and road debris','windshield':'Chips, cracks and replacement','key-remote':'Lost, stolen or dead key fobs','touchscreen':'Center, cluster and HUD displays','dent-repair':'Door dings up to 4", paint intact','rust-undercoat':'Salt, spray and corrosion','appearance':'Interior and paint protection','oil-change':'Oil, rotation and inspection','combo':'Five protections, one plan','vsc':'Mechanical breakdown, four levels','certified-wrap':'Beyond your CPO warranty','affordable-wrap':'Powertrain for 70k–150k miles','tech':'Screens, sensors and comfort tech','commercial':'For business-use vehicles','vpp':'New leases, wear items included','ewt':'Lease turn-in charges waived'};
